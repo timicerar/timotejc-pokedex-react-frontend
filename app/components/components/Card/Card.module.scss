@@ -31,7 +31,7 @@
   color: inherit;
 
   @include hover {
-    transform: translate(-3px, -3px);
+    transform: translate(-2px, -2px);
     box-shadow: var(--shadow-lg);
     border-color: var(--primary);
   }
