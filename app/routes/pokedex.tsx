@@ -1,13 +1,13 @@
 import { useTranslation } from 'react-i18next';
-import { ThemeToggle } from '~/components/components/ThemeToggle';
-import { Typography } from '~/components/components/Typography';
+import ThemeToggle from '~/components/components/ThemeToggle/ThemeToggle';
+import Typography from '~/components/components/Typography/Typography';
 
 const Pokedex = () => {
   const { t } = useTranslation();
 
   return (
     <>
-      <Typography as="h1" type="display-4xl">
+      <Typography as="h1" type="display-4xl" color="destructive">
         {t('shared.pokedex')}
       </Typography>
       <ThemeToggle />

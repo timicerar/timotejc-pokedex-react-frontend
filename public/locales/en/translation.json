@@ -1,5 +1,6 @@
 {
   "shared": {
-    "pokedex": "Pokedex"
+    "pokedex": "Pokédex",
+    "toggleTheme": "Toggle theme"
   }
 }

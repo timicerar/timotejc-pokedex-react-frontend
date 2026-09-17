@@ -4,7 +4,7 @@ import classes from '~/components/components/Typography/Typography.module.scss';
 import { Colors } from '~/constants/colors';
 import { TypographyElements, TypographyTypes } from '~/constants/typography';
 
-export const Typography = ({
+const Typography = ({
   as = TypographyElements.P,
   type = TypographyTypes.BODY,
   color,
@@ -32,3 +32,5 @@ export const Typography = ({
     </Element>
   );
 };
+
+export default Typography;
