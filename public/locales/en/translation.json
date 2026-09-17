@@ -1,4 +1,18 @@
 {
+  "meta": {
+    "home": {
+      "title": "Pokédex",
+      "description": "Browse the full Pokédex and discover detailed stats, types, and abilities for every Pokémon."
+    },
+    "details": {
+      "title": "Pokémon Details - Pokédex",
+      "description": "View detailed stats, types, abilities, and more for this Pokémon."
+    },
+    "notFound": {
+      "title": "Page Not Found - Pokédex",
+      "description": "The page you're looking for doesn't exist or may have been moved."
+    }
+  },
   "shared": {
     "pokedex": "Pokédex",
     "toggleTheme": "Toggle theme"
