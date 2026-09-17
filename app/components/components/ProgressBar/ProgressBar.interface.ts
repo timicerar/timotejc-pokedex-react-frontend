@@ -1,4 +1,5 @@
 import type { HTMLAttributes } from 'react';
+import type { ColorValue } from '~/constants/colors';
 
 export type ProgressBarProps = Omit<
   HTMLAttributes<HTMLDivElement>,
@@ -6,7 +7,7 @@ export type ProgressBarProps = Omit<
 > & {
   value: number;
   maxValue?: number;
-  color: string;
+  color: ColorValue;
   maxWidth?: string | number;
   shimmer?: boolean;
 };

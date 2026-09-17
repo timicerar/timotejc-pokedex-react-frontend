@@ -1,5 +1,6 @@
 import type { PropsWithChildren } from 'react';
 import { useCallback, useMemo, useState } from 'react';
+import { Colors } from '~/constants/colors';
 import { ThemeContext } from '~/theme/ThemeContext';
 import { type Theme, Themes } from '~/theme/theme.types';
 import { getInitialTheme, storeTheme } from '~/theme/theme-storage';
@@ -23,7 +24,7 @@ export const ThemeProvider = ({ children }: PropsWithChildren) => {
   }, []);
 
   const value = useMemo(
-    () => ({ theme, setTheme, toggleTheme }),
+    () => ({ theme, setTheme, toggleTheme, cssVariable: Colors }),
     [theme, setTheme, toggleTheme],
   );
 

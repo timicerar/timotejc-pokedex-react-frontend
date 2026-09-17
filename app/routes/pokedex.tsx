@@ -1,7 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import Button from '~/components/components/Button/Button';
 import Card from '~/components/components/Card/Card';
-import ProgressBar from '~/components/components/ProgressBar/ProgressBar';
 import StatBar from '~/components/components/StatBar/StatBar';
 import ThemeToggle from '~/components/components/ThemeToggle/ThemeToggle';
 import Typography from '~/components/components/Typography/Typography';
@@ -21,7 +20,7 @@ const Pokedex = () => {
       }}
     >
       <Card onClick={() => console.log('card clicked')} fullWidth>
-        <Typography as="h1" type="label" color="destructive">
+        <Typography as="h1" type="label" color="stat-attack">
           {t('shared.pokedex')}
         </Typography>
       </Card>
@@ -33,30 +32,25 @@ const Pokedex = () => {
       <Button variant="ghost">{t('shared.pokedex')}</Button>
       <Button variant="secondary">{t('shared.pokedex')}</Button>
 
-      <div style={{ width: '100%' }}>
-        <StatBar
-          label="Shimmer"
-          color={StatColors.HP}
-          value={78}
-          minWidth={300}
-          maxWidth={600}
-          shimmer
-        />
-        <StatBar label="HP" color={StatColors.HP} value={78} maxWidth={600} />
-        <StatBar label="Attack" color={StatColors.ATTACK} value={84} />
-        <StatBar
-          label="Defense"
-          color={StatColors.DEFENSE}
-          value={78}
-          maxWidth={600}
-        />
-        <StatBar
-          label="Sp. Atk"
-          color={StatColors.SPECIAL_ATTACK}
-          value={230}
-          maxWidth={600}
-        />
-      </div>
+      <StatBar label="HP" color={StatColors.HP} value={78} maxWidth={600} />
+      <StatBar
+        label="Attack"
+        color={StatColors.ATTACK}
+        value={84}
+        maxWidth={600}
+      />
+      <StatBar
+        label="Defense"
+        color={StatColors.DEFENSE}
+        value={78}
+        maxWidth={600}
+      />
+      <StatBar
+        label="Sp. Atk"
+        color={StatColors.SPECIAL_ATTACK}
+        value={230}
+        maxWidth={600}
+      />
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import { createContext } from 'react';
+import { Colors } from '~/constants/colors';
 import { type ThemeContextType, Themes } from '~/theme/theme.types';
 
 export const ThemeContext = createContext<ThemeContextType>({
@@ -9,4 +10,5 @@ export const ThemeContext = createContext<ThemeContextType>({
   toggleTheme: async () => {
     return;
   },
+  cssVariable: Colors,
 });

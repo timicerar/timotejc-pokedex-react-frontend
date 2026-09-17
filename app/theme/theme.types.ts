@@ -1,3 +1,5 @@
+import type { Colors } from '~/constants/colors';
+
 export const Themes = {
   LIGHT: 'light',
   DARK: 'dark',
@@ -9,4 +11,5 @@ export type ThemeContextType = {
   theme: Theme;
   setTheme: (theme: Theme) => void;
   toggleTheme: () => void;
+  cssVariable: typeof Colors;
 };
