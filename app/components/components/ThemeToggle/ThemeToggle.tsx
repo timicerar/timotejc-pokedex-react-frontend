@@ -13,7 +13,7 @@ const ThemeToggle = () => {
   return (
     <Button
       variant={ButtonVariants.SECONDARY}
-      size={ButtonSizes.SM}
+      size={ButtonSizes.DEFAULT}
       ariaLabel={t('shared.toggleTheme')}
       onClick={toggleTheme}
       leadingIcon={
