@@ -17,7 +17,7 @@ const Pokedex = () => {
         padding: 20,
       }}
     >
-      <Card padding="dense" onClick={() => console.log('card clicked')}>
+      <Card onClick={() => console.log('card clicked')} fullWidth>
         <Typography as="h1" type="label" color="destructive">
           {t('shared.pokedex')}
         </Typography>
