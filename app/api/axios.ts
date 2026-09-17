@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { env } from '~/utils/env';
+import { env } from '~/constants/env';
 
 const apiInstance = axios.create({
   baseURL: env('VITE_API_URL'),

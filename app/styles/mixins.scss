@@ -36,3 +36,15 @@ $breakpoints: (
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+@mixin typography($variant, $family: 'body', $uppercase: false) {
+  font-family: var(--font-#{$family});
+  font-size: var(--text-#{$variant}-size);
+  line-height: var(--text-#{$variant}-line-height);
+  font-weight: var(--text-#{$variant}-weight);
+  letter-spacing: var(--text-#{$variant}-letter-spacing);
+
+  @if $uppercase {
+    text-transform: uppercase;
+  }
+}
