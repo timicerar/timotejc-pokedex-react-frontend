@@ -1,0 +1,38 @@
+@use 'sass:map';
+
+$breakpoints: (
+  xs: 375,
+  sm: 600,
+  lsm: 800,
+  md: 960,
+  lmd: 1024,
+  lg: 1280,
+  xl: 1920,
+);
+
+@mixin mq($width, $type: max) {
+  @if map.has-key($breakpoints, $width) {
+    $width: map.get($breakpoints, $width);
+    @if $type == max {
+      $width: $width - 0.5;
+    }
+    @media only screen and (#{$type}-width: #{$width}px) {
+      @content;
+    }
+  }
+}
+
+@mixin hover {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin lineClamp($numOfLines) {
+  display: -webkit-box;
+  -webkit-line-clamp: $numOfLines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

@@ -1,0 +1,9 @@
+.react-router
+build
+node_modules
+.git
+.env
+.env.*
+*.log
+.idea
+README.md

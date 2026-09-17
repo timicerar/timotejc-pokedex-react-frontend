@@ -1,0 +1,47 @@
+{
+  "name": "timotejc-pokedex-react-frontend",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "react-router build",
+    "dev": "react-router dev",
+    "start": "react-router-serve ./build/server/index.js",
+    "typecheck": "react-router typegen && tsc",
+    "docker:local:up": "docker compose -f docker/compose.local.yaml up -d",
+    "docker:local:down": "docker compose -f docker/compose.local.yaml down",
+    "lint": "biome lint",
+    "check": "biome check",
+    "check:prettier": "prettier --check \"**/*.{scss,css}\"",
+    "format": "biome format --write",
+    "format:prettier": "prettier --write \"**/*.{scss,css}\""
+  },
+  "dependencies": {
+    "@react-router/node": "~8.4.0",
+    "@react-router/serve": "~8.4.0",
+    "@tanstack/react-query": "~5.103.1",
+    "@tanstack/react-query-devtools": "~5.103.1",
+    "@tanstack/react-virtual": "~3.14.13",
+    "axios": "~1.20.0",
+    "classnames": "~2.5.1",
+    "i18next": "~26.4.2",
+    "i18next-http-backend": "~4.0.2",
+    "isbot": "^5.2.2",
+    "react": "~19.2.8",
+    "react-dom": "~19.2.8",
+    "react-i18next": "~17.0.14",
+    "react-router": "~8.4.0",
+    "uuid": "~14.0.2",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "~2.5.14",
+    "@react-router/dev": "~8.4.0",
+    "@types/node": "~22.20.3",
+    "@types/prettier": "~3.0.0",
+    "@types/react": "~19.2.18",
+    "@types/react-dom": "~19.2.7",
+    "sass": "~1.104.1",
+    "typescript": "~7.0.2",
+    "vite": "~8.3.0"
+  }
+}
