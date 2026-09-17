@@ -11,6 +11,10 @@
   cursor: pointer;
   padding: var(--space-2) var(--space-4);
   @include typography('button', 'body', true);
+  transition:
+    transform 150ms ease,
+    box-shadow 150ms ease,
+    border-color 150ms ease;
 
   &:focus-visible {
     outline: 2px solid var(--ring);
@@ -27,6 +31,10 @@
 
 .sm {
   padding: var(--space-1) var(--space-3);
+}
+
+.fullWidth {
+  width: 100%;
 }
 
 .primary {

@@ -8,6 +8,7 @@ export type ButtonProps = Omit<
   variant?: ButtonVariant;
   size?: ButtonSize;
   ariaLabel?: string;
+  fullWidth?: boolean;
   leadingIcon?: ReactNode;
   trailingIcon?: ReactNode;
   children?: ReactNode;

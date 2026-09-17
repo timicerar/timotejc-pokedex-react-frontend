@@ -11,6 +11,7 @@ const Button = ({
   disabled,
   leadingIcon,
   trailingIcon,
+  fullWidth,
   className,
   children,
   ...props
@@ -24,6 +25,7 @@ const Button = ({
         classes.button,
         classes[variant],
         classes[size],
+        { [classes.fullWidth]: fullWidth },
         className,
       )}
       {...props}
