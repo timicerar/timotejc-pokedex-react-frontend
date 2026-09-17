@@ -1,0 +1,159 @@
+:root {
+  color-scheme: light;
+
+  /* Color — UI tokens (light, default) */
+  --background: hsl(40, 38%, 97%);
+  --foreground: hsl(222, 47%, 11%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(222, 47%, 11%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(222, 47%, 11%);
+  --primary: hsl(4, 89%, 51%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(214, 89%, 52%);
+  --secondary-foreground: hsl(0, 0%, 100%);
+  --muted: hsl(40, 27%, 92%);
+  --muted-foreground: hsl(215, 16%, 40%);
+  --accent: hsl(48, 100%, 50%);
+  --accent-foreground: hsl(222, 47%, 11%);
+  --destructive: hsl(0, 74%, 42%);
+  --destructive-foreground: hsl(0, 0%, 100%);
+  --border: hsl(40, 20%, 83%);
+  --input: hsl(40, 20%, 83%);
+  --ring: hsl(4, 89%, 51%);
+
+  /* Shadow — the "pixel shadow" scale (light, default) */
+  --shadow-sm: 3px 3px 0 hsl(40, 20%, 83%);
+  --shadow-md: 5px 5px 0 hsl(40, 20%, 83%);
+  --shadow-lg: 8px 8px 0 hsl(4, 89%, 51%);
+  --shadow-xl: 10px 10px 0 hsl(4, 89%, 51%);
+
+  /* Color — Pokémon type tokens (single-value, same in both themes) */
+  --type-normal: #a8a878;
+  --type-normal-foreground: #1a1a1a;
+  --type-fire: #f08030;
+  --type-fire-foreground: #ffffff;
+  --type-water: #6890f0;
+  --type-water-foreground: #ffffff;
+  --type-electric: #f8d030;
+  --type-electric-foreground: #1a1a1a;
+  --type-grass: #78c850;
+  --type-grass-foreground: #1a1a1a;
+  --type-ice: #98d8d8;
+  --type-ice-foreground: #1a1a1a;
+  --type-fighting: #c03028;
+  --type-fighting-foreground: #ffffff;
+  --type-poison: #a040a0;
+  --type-poison-foreground: #ffffff;
+  --type-ground: #e0c068;
+  --type-ground-foreground: #1a1a1a;
+  --type-flying: #a890f0;
+  --type-flying-foreground: #1a1a1a;
+  --type-psychic: #f85888;
+  --type-psychic-foreground: #ffffff;
+  --type-bug: #a8b820;
+  --type-bug-foreground: #1a1a1a;
+  --type-rock: #b8a038;
+  --type-rock-foreground: #1a1a1a;
+  --type-ghost: #705898;
+  --type-ghost-foreground: #ffffff;
+  --type-dragon: #7038f8;
+  --type-dragon-foreground: #ffffff;
+  --type-dark: #705848;
+  --type-dark-foreground: #ffffff;
+  --type-steel: #b8b8d0;
+  --type-steel-foreground: #1a1a1a;
+  --type-fairy: #ee99ac;
+  --type-fairy-foreground: #1a1a1a;
+
+  /* Color — stat tokens (single-value, same in both themes) */
+  --stat-hp: #78c850;
+  --stat-attack: #f08030;
+  --stat-defense: #6890f0;
+  --stat-special-attack: #f85888;
+  --stat-special-defense: #a890f0;
+  --stat-speed: #f8d030;
+
+  /* Typography — font families */
+  --font-display: 'Press Start 2P', monospace;
+  --font-body: 'Rubik', system-ui, sans-serif;
+  --font-mono: 'VT323', monospace;
+
+  /* Spacing (4px-rooted scale) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-9: 36px;
+  --space-10: 40px;
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 14px;
+  --radius-full: 9999px;
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme='light']) {
+    color-scheme: dark;
+
+    --background: hsl(222, 47%, 7%);
+    --foreground: hsl(40, 30%, 95%);
+    --card: hsl(222, 40%, 11%);
+    --card-foreground: hsl(40, 30%, 95%);
+    --popover: hsl(222, 40%, 11%);
+    --popover-foreground: hsl(40, 30%, 95%);
+    --primary: hsl(4, 89%, 58%);
+    --primary-foreground: hsl(0, 0%, 100%);
+    --secondary: hsl(214, 80%, 58%);
+    --secondary-foreground: hsl(222, 47%, 7%);
+    --muted: hsl(222, 30%, 16%);
+    --muted-foreground: hsl(215, 20%, 65%);
+    --accent: hsl(48, 100%, 55%);
+    --accent-foreground: hsl(222, 47%, 7%);
+    --destructive: hsl(0, 70%, 55%);
+    --destructive-foreground: hsl(0, 0%, 100%);
+    --border: hsl(222, 25%, 20%);
+    --input: hsl(222, 25%, 20%);
+    --ring: hsl(4, 89%, 58%);
+
+    --shadow-sm: 3px 3px 0 hsl(222, 25%, 20%);
+    --shadow-md: 5px 5px 0 hsl(222, 25%, 20%);
+    --shadow-lg: 8px 8px 0 hsl(4, 89%, 58%);
+    --shadow-xl: 10px 10px 0 hsl(4, 89%, 58%);
+  }
+}
+
+html[data-theme='dark'] {
+  color-scheme: dark;
+
+  --background: hsl(222, 47%, 7%);
+  --foreground: hsl(40, 30%, 95%);
+  --card: hsl(222, 40%, 11%);
+  --card-foreground: hsl(40, 30%, 95%);
+  --popover: hsl(222, 40%, 11%);
+  --popover-foreground: hsl(40, 30%, 95%);
+  --primary: hsl(4, 89%, 58%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(214, 80%, 58%);
+  --secondary-foreground: hsl(222, 47%, 7%);
+  --muted: hsl(222, 30%, 16%);
+  --muted-foreground: hsl(215, 20%, 65%);
+  --accent: hsl(48, 100%, 55%);
+  --accent-foreground: hsl(222, 47%, 7%);
+  --destructive: hsl(0, 70%, 55%);
+  --destructive-foreground: hsl(0, 0%, 100%);
+  --border: hsl(222, 25%, 20%);
+  --input: hsl(222, 25%, 20%);
+  --ring: hsl(4, 89%, 58%);
+
+  --shadow-sm: 3px 3px 0 hsl(222, 25%, 20%);
+  --shadow-md: 5px 5px 0 hsl(222, 25%, 20%);
+  --shadow-lg: 8px 8px 0 hsl(4, 89%, 58%);
+  --shadow-xl: 10px 10px 0 hsl(4, 89%, 58%);
+}
