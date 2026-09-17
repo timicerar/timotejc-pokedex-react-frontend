@@ -10,6 +10,7 @@ const Typography = ({
   color,
   align,
   italic,
+  uppercase,
   className,
   style,
   children,
@@ -19,7 +20,12 @@ const Typography = ({
 
   return (
     <Element
-      className={classNames(classes.container, classes[type], className)}
+      className={classNames(
+        classes.container,
+        classes[type],
+        { [classes.uppercase]: uppercase },
+        className,
+      )}
       {...props}
       style={{
         ...(color && { color: Colors[color] }),

@@ -7,7 +7,7 @@ const Pokedex = () => {
 
   return (
     <>
-      <Typography as="h1" type="display-4xl" color="destructive">
+      <Typography as="h1" type="label" color="destructive">
         {t('shared.pokedex')}
       </Typography>
       <ThemeToggle />

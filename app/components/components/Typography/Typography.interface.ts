@@ -8,4 +8,5 @@ export type TypographyProps = HTMLAttributes<HTMLElement> & {
   color?: ColorToken;
   align?: 'left' | 'center' | 'right';
   italic?: boolean;
+  uppercase?: boolean;
 };
