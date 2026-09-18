@@ -17,6 +17,8 @@ export const PokemonTypes = {
   DARK: 'dark',
   STEEL: 'steel',
   FAIRY: 'fairy',
+  STELLAR: 'stellar',
+  UNKNOWN: 'unknown',
 } as const;
 
 export type PokemonType = (typeof PokemonTypes)[keyof typeof PokemonTypes];

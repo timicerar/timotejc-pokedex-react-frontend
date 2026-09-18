@@ -27,10 +27,10 @@
   width: 12px;
   height: 12px;
   flex-shrink: 0;
-  visibility: hidden;
+  display: none;
 
   &.visible {
-    visibility: visible;
+    display: block;
   }
 }
 

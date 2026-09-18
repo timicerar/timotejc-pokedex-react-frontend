@@ -65,6 +65,10 @@
   --type-steel-foreground: #1a1a1a;
   --type-fairy: #ee99ac;
   --type-fairy-foreground: #1a1a1a;
+  --type-stellar: #40b5a5;
+  --type-stellar-foreground: #ffffff;
+  --type-unknown: #909090;
+  --type-unknown-foreground: #ffffff;
 
   /* Color — stat tokens (single-value, same in both themes) */
   --stat-hp: #78c850;

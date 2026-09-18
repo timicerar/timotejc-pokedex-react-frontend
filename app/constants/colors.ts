@@ -57,6 +57,10 @@ export const Colors = {
   'type-steel-foreground': 'var(--type-steel-foreground)',
   'type-fairy': 'var(--type-fairy)',
   'type-fairy-foreground': 'var(--type-fairy-foreground)',
+  'type-stellar': 'var(--type-stellar)',
+  'type-stellar-foreground': 'var(--type-stellar-foreground)',
+  'type-unknown': 'var(--type-unknown)',
+  'type-unknown-foreground': 'var(--type-unknown-foreground)',
 
   // Stat tokens
   'stat-hp': 'var(--stat-hp)',

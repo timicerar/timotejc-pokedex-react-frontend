@@ -20,5 +20,46 @@
       "placeholder": "Select an option",
       "reset": "Clear"
     }
+  },
+  "pokemonTypes": {
+    "normal": "Normal",
+    "fire": "Fire",
+    "water": "Water",
+    "electric": "Electric",
+    "grass": "Grass",
+    "ice": "Ice",
+    "fighting": "Fighting",
+    "poison": "Poison",
+    "ground": "Ground",
+    "flying": "Flying",
+    "psychic": "Psychic",
+    "bug": "Bug",
+    "rock": "Rock",
+    "ghost": "Ghost",
+    "dragon": "Dragon",
+    "dark": "Dark",
+    "steel": "Steel",
+    "fairy": "Fairy",
+    "stellar": "Stellar",
+    "unknown": "Unknown"
+  },
+  "selectPokemonType": {
+    "label": "Type",
+    "allTypes": "All Types"
+  },
+  "pokemonGenerations": {
+    "gen1": "Generation I",
+    "gen2": "Generation II",
+    "gen3": "Generation III",
+    "gen4": "Generation IV",
+    "gen5": "Generation V",
+    "gen6": "Generation VI",
+    "gen7": "Generation VII",
+    "gen8": "Generation VIII",
+    "gen9": "Generation IX"
+  },
+  "selectPokemonGeneration": {
+    "label": "Generation",
+    "allGenerations": "All Generations"
   }
 }
