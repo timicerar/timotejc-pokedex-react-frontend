@@ -1,10 +1,8 @@
-import { useTranslation } from 'react-i18next';
-import Typography from '~/components/components/Typography/Typography';
+import NotFound from '~/components/compositions/NotFound/NotFound';
+import { NotFoundTypes } from '~/constants/not-found';
 
 const NotFoundPage = () => {
-  const { t } = useTranslation();
-
-  return <Typography>{t('meta.notFound.title')}</Typography>;
+  return <NotFound type={NotFoundTypes.GENERIC} />;
 };
 
 export default NotFoundPage;

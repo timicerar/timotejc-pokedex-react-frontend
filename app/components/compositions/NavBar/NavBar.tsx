@@ -22,8 +22,8 @@ const NavBar = () => {
         {!isHome && (
           <Link to={Routes.POKEDEX()} className={classes.backLink}>
             <FontAwesomeIcon icon={faArrowLeft} aria-hidden="true" />
-            <Typography as="span" type="label" color="foreground" uppercase>
-              {t('navBar.backToPokedex')}
+            <Typography as="span" type="label" uppercase>
+              {t('shared.backToPokedex')}
             </Typography>
           </Link>
         )}

@@ -1,27 +1,22 @@
 @use 'app/styles/mixins' as *;
 
 .layout {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
   min-height: 100dvh;
   background: var(--background);
+
+  &.noFilters {
+    grid-template-rows: auto 1fr;
+  }
 }
 
 .filters {
-  padding: var(--space-5) var(--space-7);
+  padding: var(--space-3) var(--space-7);
   background: var(--muted);
   border-bottom: 3px solid var(--border);
 
   @include mq(sm) {
     padding: var(--space-3) var(--space-4);
-  }
-}
-
-.content {
-  flex: 1 1 auto;
-  padding: 32px;
-
-  @include mq(sm) {
-    padding: 16px;
   }
 }

@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import type { ReactNode } from 'react';
 import { useMemo, useState } from 'react';
 import { Outlet } from 'react-router';
@@ -10,10 +11,12 @@ const DefaultLayout = () => {
   const context = useMemo<DefaultLayoutContext>(() => ({ setFilters }), []);
 
   return (
-    <div className={classes.layout}>
+    <div
+      className={classNames(classes.layout, { [classes.noFilters]: !filters })}
+    >
       <NavBar />
       {filters && <div className={classes.filters}>{filters}</div>}
-      <main className={classes.content}>
+      <main>
         <Outlet context={context} />
       </main>
     </div>

@@ -40,7 +40,9 @@
   align-items: center;
   gap: var(--space-2);
   white-space: nowrap;
+  color: var(--foreground);
   text-decoration: none;
+  @include typography('label', 'body', true);
 
   @include hover {
     color: var(--primary);

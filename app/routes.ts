@@ -8,7 +8,7 @@ import {
 export default [
   layout('routes/default-layout.tsx', [
     index('routes/pokedex.tsx'),
-    route('/details/:pokemon', 'routes/pokemon-details.tsx'),
+    route('/pokemon/:pokemon', 'routes/pokemon-details.tsx'),
   ]),
-  route('*', 'routes/not-found.tsx'),
+  layout('routes/center-layout.tsx', [route('*', 'routes/not-found.tsx')]),
 ] satisfies RouteConfig;

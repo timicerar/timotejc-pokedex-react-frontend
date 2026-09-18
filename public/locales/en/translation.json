@@ -14,7 +14,9 @@
     }
   },
   "shared": {
-    "pokedex": "Pokédex"
+    "pokedex": "Pokédex",
+    "backToPokedex": "Back to Pokédex",
+    "goHome": "Go Home "
   },
   "select": {
     "placeholder": "Select an option",
@@ -28,8 +30,20 @@
     "light": "Light Mode",
     "dark": "Dark Mode"
   },
-  "navBar": {
-    "backToPokedex": "Back to Pokédex"
+  "notFound": {
+    "404": "404",
+    "generic": {
+      "title": "This page wandered off the map",
+      "description": "The route you followed doesn't lead anywhere in the Pokédex. Let's get you back on the path."
+    },
+    "pokemonDetails": {
+      "title": "Pokémon not found",
+      "description": "We looked all through the tall grass, but there's no entry for that number in this Pokédex. Double-check it and try again."
+    },
+    "pokemonList": {
+      "title": "No Pokémon found",
+      "description": "Try a different search term, type or generation."
+    }
   },
   "pokemonTypes": {
     "normal": "Normal",
