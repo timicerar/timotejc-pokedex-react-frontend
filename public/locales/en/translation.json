@@ -20,6 +20,9 @@
     "placeholder": "Select an option",
     "reset": "Clear"
   },
+  "pokemonFilters": {
+    "searchPlaceholder": "Search Pokémon"
+  },
   "theme": {
     "toggle": "Toggle theme",
     "light": "Light Mode",

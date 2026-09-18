@@ -12,9 +12,7 @@ const DefaultLayout = () => {
   return (
     <div className={classes.layout}>
       <NavBar />
-
       {filters && <div className={classes.filters}>{filters}</div>}
-
       <main className={classes.content}>
         <Outlet context={context} />
       </main>
