@@ -2,6 +2,14 @@
   display: none;
 }
 
+.icon--light {
+  color: var(--type-fire);
+}
+
+.icon--dark {
+  color: var(--secondary);
+}
+
 :global(html[data-theme='light']) .icon--light {
   display: inline;
 }

@@ -5,7 +5,7 @@ import { ThemeContext } from '~/theme/ThemeContext';
 import { type Theme, Themes } from '~/theme/theme.types';
 import { getInitialTheme, storeTheme } from '~/theme/theme-storage';
 
-export const ThemeProvider = ({ children }: PropsWithChildren) => {
+const ThemeProvider = ({ children }: PropsWithChildren) => {
   const [theme, setThemeState] = useState<Theme>(getInitialTheme);
 
   const setTheme = useCallback((next: Theme) => {
@@ -32,3 +32,5 @@ export const ThemeProvider = ({ children }: PropsWithChildren) => {
     <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
   );
 };
+
+export default ThemeProvider;

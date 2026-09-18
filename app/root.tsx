@@ -7,7 +7,7 @@ import i18n from '~/lib/i18n';
 import { queryClient } from '~/lib/queryClient';
 import '~/styles/tokens.css';
 import '~/styles/global.scss';
-import { ThemeProvider } from '~/theme';
+import ThemeProvider from '~/theme/ThemeProvider';
 import { THEME_INIT_SCRIPT } from '~/theme/theme-init-script';
 
 export const Layout = ({ children }: PropsWithChildren) => {

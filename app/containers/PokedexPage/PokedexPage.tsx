@@ -1,3 +1,5 @@
+import { faAccessibleIcon } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useTranslation } from 'react-i18next';
 import Button from '~/components/components/Button/Button';
 import Card from '~/components/components/Card/Card';
@@ -20,7 +22,12 @@ const PokedexPage = () => {
       </Card>
       <ThemeToggle />
 
-      <Button variant="primary">{t('shared.pokedex')}</Button>
+      <Button
+        variant="primary"
+        leadingIcon={<FontAwesomeIcon icon={faAccessibleIcon} />}
+      >
+        {t('shared.pokedex')}
+      </Button>
       <Button variant="destructive">{t('shared.pokedex')}</Button>
       <Button variant="ghost">{t('shared.pokedex')}</Button>
       <Button variant="secondary">{t('shared.pokedex')}</Button>
