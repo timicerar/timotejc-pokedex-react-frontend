@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import ThemeToggle from '~/components/components/ThemeToggle/ThemeToggle';
+import NavBar from '~/components/compositions/NavBar/NavBar';
 import SelectPokemonGeneration from '~/components/compositions/SelectPokemonGeneration/SelectPokemonGeneration';
 import SelectPokemonType from '~/components/compositions/SelectPokemonType/SelectPokemonType';
 import classes from './PokedexPage.module.scss';
@@ -9,21 +9,23 @@ const PokedexPage = () => {
   const [selectedGeneration, setSelectedGeneration] = useState('');
 
   return (
-    <div className={classes.container}>
-      <ThemeToggle showLabel />
+    <>
+      <NavBar />
 
-      <SelectPokemonType
-        multiple
-        value={selectedTypes}
-        onChange={(next) => setSelectedTypes(next as string[])}
-      />
+      <div className={classes.container}>
+        <SelectPokemonType
+          multiple
+          value={selectedTypes}
+          onChange={(next) => setSelectedTypes(next as string[])}
+        />
 
-      <SelectPokemonGeneration
-        multiple
-        value={selectedGeneration}
-        onChange={(next) => setSelectedGeneration(next as string)}
-      />
-    </div>
+        <SelectPokemonGeneration
+          multiple
+          value={selectedGeneration}
+          onChange={(next) => setSelectedGeneration(next as string)}
+        />
+      </div>
+    </>
   );
 };
 

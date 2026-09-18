@@ -5,18 +5,22 @@ import Button from '~/components/components/Button/Button';
 import type { ThemeToggleProps } from '~/components/components/ThemeToggle/ThemeToggle.interface';
 import styles from '~/components/components/ThemeToggle/ThemeToggle.module.scss';
 import { ButtonSizes, ButtonVariants } from '~/constants/button';
+import { useMediaQuery } from '~/hooks/useMediaQuery';
 import useTheme from '~/theme/hooks/useTheme';
 import { Themes } from '~/theme/Theme.interface';
 
 const ThemeToggle = ({ showLabel = false }: ThemeToggleProps) => {
   const { t } = useTranslation();
+
   const { theme, toggleTheme } = useTheme();
+  const isMobile = useMediaQuery('sm');
+
   const modeLabel = t(theme === Themes.LIGHT ? 'theme.light' : 'theme.dark');
 
   return (
     <Button
       variant={ButtonVariants.SECONDARY}
-      size={ButtonSizes.DEFAULT}
+      size={isMobile ? ButtonSizes.SM : ButtonSizes.DEFAULT}
       ariaLabel={t('theme.toggle')}
       onClick={toggleTheme}
       leadingIcon={
@@ -32,7 +36,7 @@ const ThemeToggle = ({ showLabel = false }: ThemeToggleProps) => {
         </>
       }
     >
-      {showLabel && modeLabel}
+      {showLabel && !isMobile && modeLabel}
     </Button>
   );
 };

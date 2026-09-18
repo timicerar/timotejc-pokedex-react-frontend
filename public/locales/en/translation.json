@@ -25,6 +25,9 @@
     "light": "Light Mode",
     "dark": "Dark Mode"
   },
+  "navBar": {
+    "backToPokedex": "Back to Pokédex"
+  },
   "pokemonTypes": {
     "normal": "Normal",
     "fire": "Fire",
