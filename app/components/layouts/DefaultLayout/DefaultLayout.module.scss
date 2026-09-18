@@ -1,0 +1,31 @@
+@use 'app/styles/mixins' as *;
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  background: var(--background);
+}
+
+.filters {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-5) var(--space-7);
+  background: var(--muted);
+  border-bottom: 3px solid var(--border);
+
+  @include mq(sm) {
+    padding: var(--space-3) var(--space-4);
+    gap: var(--space-2);
+  }
+}
+
+.content {
+  flex: 1 1 auto;
+  padding: 32px;
+
+  @include mq(sm) {
+    padding: 16px;
+  }
+}
