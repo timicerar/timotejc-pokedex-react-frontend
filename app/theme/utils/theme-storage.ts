@@ -1,5 +1,5 @@
 import { StorageKeys } from '~/constants/storage-keys';
-import { type Theme, Themes } from '~/theme/theme.types';
+import { type Theme, Themes } from '~/theme/Theme.interface';
 
 const isTheme = (value: string | null): value is Theme => {
   return value === Themes.LIGHT || value === Themes.DARK;

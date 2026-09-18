@@ -5,6 +5,10 @@ import Button from '~/components/components/Button/Button';
 import Card from '~/components/components/Card/Card';
 import Image from '~/components/components/Image/Image';
 import StatBar from '~/components/components/StatBar/StatBar';
+import Tab from '~/components/components/Tabs/Tab/Tab';
+import TabContent from '~/components/components/Tabs/TabContent/TabContent';
+import Tabs from '~/components/components/Tabs/Tabs';
+import TabsList from '~/components/components/Tabs/TabsList/TabsList';
 import ThemeToggle from '~/components/components/ThemeToggle/ThemeToggle';
 import Typography from '~/components/components/Typography/Typography';
 import { StatColors } from '~/constants/stat-bar';
@@ -51,6 +55,33 @@ const PokedexPage = () => {
         value={230}
         maxWidth={600}
       />
+
+      <Tabs defaultValue="about">
+        <TabsList wrap={false}>
+          <Tab value="about">About</Tab>
+          <Tab value="stats">Base Stats</Tab>
+          <Tab value="evolution">Evolution Chain</Tab>
+          <Tab value="moves">Moves</Tab>
+        </TabsList>
+        <TabContent value="about" hideOutline>
+          <Typography as="p" type="body">
+            A brief flavor-text description of the Pokémon goes here.
+          </Typography>
+        </TabContent>
+        <TabContent value="stats" hideOutline>
+          <StatBar label="HP" color={StatColors.HP} value={78} maxWidth={600} />
+        </TabContent>
+        <TabContent value="evolution" hideOutline>
+          <Typography as="p" type="body">
+            Evolution chain content goes here.
+          </Typography>
+        </TabContent>
+        <TabContent value="moves" hideOutline>
+          <Typography as="p" type="body">
+            Move list content goes here.
+          </Typography>
+        </TabContent>
+      </Tabs>
 
       <Image
         src="/images/seo/og-image-square.png"

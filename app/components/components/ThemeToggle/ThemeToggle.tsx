@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import Button from '~/components/components/Button/Button';
 import styles from '~/components/components/ThemeToggle/ThemeToggle.module.scss';
 import { ButtonSizes, ButtonVariants } from '~/constants/button';
-import useTheme from '~/theme/useTheme';
+import useTheme from '~/theme/hooks/useTheme';
 
 const ThemeToggle = () => {
   const { t } = useTranslation();

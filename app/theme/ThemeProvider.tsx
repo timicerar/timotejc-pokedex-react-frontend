@@ -1,9 +1,9 @@
 import type { PropsWithChildren } from 'react';
 import { useCallback, useMemo, useState } from 'react';
 import { Colors } from '~/constants/colors';
+import { type Theme, Themes } from '~/theme/Theme.interface';
 import { ThemeContext } from '~/theme/ThemeContext';
-import { type Theme, Themes } from '~/theme/theme.types';
-import { getInitialTheme, storeTheme } from '~/theme/theme-storage';
+import { getInitialTheme, storeTheme } from '~/theme/utils/theme-storage';
 
 const ThemeProvider = ({ children }: PropsWithChildren) => {
   const [theme, setThemeState] = useState<Theme>(getInitialTheme);

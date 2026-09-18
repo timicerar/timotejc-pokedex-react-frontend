@@ -8,7 +8,7 @@ import { queryClient } from '~/lib/queryClient';
 import '~/styles/tokens.css';
 import '~/styles/global.scss';
 import ThemeProvider from '~/theme/ThemeProvider';
-import { THEME_INIT_SCRIPT } from '~/theme/theme-init-script';
+import { THEME_INIT_SCRIPT } from '~/theme/utils/theme-init-script';
 
 export const Layout = ({ children }: PropsWithChildren) => {
   return (
@@ -26,6 +26,8 @@ export const Layout = ({ children }: PropsWithChildren) => {
             __html: '"__RUNTIME_CONFIG_PLACEHOLDER__"',
           }}
         />
+
+        <title>Pokédex</title>
 
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
