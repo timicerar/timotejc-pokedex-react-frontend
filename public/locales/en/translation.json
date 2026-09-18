@@ -15,6 +15,10 @@
   },
   "shared": {
     "pokedex": "Pokédex",
-    "toggleTheme": "Toggle theme"
+    "toggleTheme": "Toggle theme",
+    "select": {
+      "placeholder": "Select an option",
+      "reset": "Clear"
+    }
   }
 }
