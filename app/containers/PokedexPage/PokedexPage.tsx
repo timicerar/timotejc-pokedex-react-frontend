@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import Button from '~/components/components/Button/Button';
 import Card from '~/components/components/Card/Card';
+import Image from '~/components/components/Image/Image';
 import StatBar from '~/components/components/StatBar/StatBar';
 import ThemeToggle from '~/components/components/ThemeToggle/ThemeToggle';
 import Typography from '~/components/components/Typography/Typography';
@@ -18,6 +19,7 @@ const PokedexPage = () => {
         </Typography>
       </Card>
       <ThemeToggle />
+
       <Button variant="primary">{t('shared.pokedex')}</Button>
       <Button variant="destructive">{t('shared.pokedex')}</Button>
       <Button variant="ghost">{t('shared.pokedex')}</Button>
@@ -41,6 +43,14 @@ const PokedexPage = () => {
         color={StatColors.SPECIAL_ATTACK}
         value={230}
         maxWidth={600}
+      />
+
+      <Image
+        src="/images/seo/og-image-square.png"
+        alt={t('shared.pokedex')}
+        width="600"
+        height="600"
+        borderRadius={16}
       />
     </div>
   );
