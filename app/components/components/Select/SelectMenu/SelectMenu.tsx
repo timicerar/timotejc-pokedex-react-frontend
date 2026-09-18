@@ -1,3 +1,4 @@
+import Divider from '~/components/components/Divider/Divider';
 import type { SelectOptionData } from '~/components/components/Select/Select.interface';
 import type { SelectMenuProps } from '~/components/components/Select/SelectMenu/SelectMenu.interface';
 import classes from '~/components/components/Select/SelectMenu/SelectMenu.module.scss';
@@ -35,11 +36,7 @@ const SelectMenu = <T extends SelectOptionData = SelectOptionData>({
               onSelect={onReset}
               onKeyDown={(event) => onOptionKeyDown(event, onReset)}
             />
-            <div
-              role="presentation"
-              aria-hidden="true"
-              className={classes.divider}
-            />
+            <Divider />
           </>
         )}
 
