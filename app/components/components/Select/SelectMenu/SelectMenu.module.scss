@@ -4,13 +4,17 @@
   left: 0;
   right: 0;
   z-index: 20;
-  max-height: 280px;
-  overflow-y: auto;
+  overflow: hidden;
   background: var(--popover);
   color: var(--popover-foreground);
   border: 2px solid var(--border);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
+}
+
+.list {
+  max-height: 280px;
+  overflow-y: auto;
   padding: var(--space-1);
 }
 
