@@ -1,9 +1,11 @@
 import { faAccessibleIcon } from '@fortawesome/free-brands-svg-icons';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useTranslation } from 'react-i18next';
 import Button from '~/components/components/Button/Button';
 import Card from '~/components/components/Card/Card';
 import Image from '~/components/components/Image/Image';
+import Input from '~/components/components/Input/Input';
 import StatBar from '~/components/components/StatBar/StatBar';
 import Tab from '~/components/components/Tabs/Tab/Tab';
 import TabContent from '~/components/components/Tabs/TabContent/TabContent';
@@ -19,12 +21,19 @@ const PokedexPage = () => {
 
   return (
     <div className={classes.container}>
-      <Card onClick={() => console.log('card clicked')} fullWidth>
+      <Card onClick={() => console.log('card clicked')}>
         <Typography as="h1" type="label">
           {t('shared.pokedex')}
         </Typography>
       </Card>
       <ThemeToggle />
+
+      <Input
+        placeholder="Search by name or number…"
+        leadingIcon={<FontAwesomeIcon icon={faSearch} />}
+        autoComplete="off"
+        maxWidth={600}
+      />
 
       <Button
         variant="primary"
