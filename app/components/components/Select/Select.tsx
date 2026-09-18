@@ -38,12 +38,12 @@ const Select = <T extends SelectOptionData = SelectOptionData>({
   const { t } = useTranslation();
 
   const placeholder = useMemo(
-    () => placeholderProp ?? t('shared.select.placeholder'),
+    () => placeholderProp ?? t('select.placeholder'),
     [placeholderProp, t],
   );
 
   const resetLabel = useMemo(
-    () => resetLabelProp ?? t('shared.select.reset'),
+    () => resetLabelProp ?? t('select.reset'),
     [resetLabelProp, t],
   );
 

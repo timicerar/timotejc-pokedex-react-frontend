@@ -14,12 +14,16 @@
     }
   },
   "shared": {
-    "pokedex": "Pokédex",
-    "toggleTheme": "Toggle theme",
-    "select": {
-      "placeholder": "Select an option",
-      "reset": "Clear"
-    }
+    "pokedex": "Pokédex"
+  },
+  "select": {
+    "placeholder": "Select an option",
+    "reset": "Clear"
+  },
+  "theme": {
+    "toggle": "Toggle theme",
+    "light": "Light Mode",
+    "dark": "Dark Mode"
   },
   "pokemonTypes": {
     "normal": "Normal",

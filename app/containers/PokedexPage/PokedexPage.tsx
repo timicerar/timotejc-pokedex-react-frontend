@@ -10,7 +10,7 @@ const PokedexPage = () => {
 
   return (
     <div className={classes.container}>
-      <ThemeToggle />
+      <ThemeToggle showLabel />
 
       <SelectPokemonType
         multiple
