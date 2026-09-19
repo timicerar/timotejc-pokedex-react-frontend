@@ -16,7 +16,8 @@
   "shared": {
     "pokedex": "Pokédex",
     "backToPokedex": "Back to Pokédex",
-    "goHome": "Go Home"
+    "goHome": "Go Home",
+    "scrollToTop": "Scroll to top"
   },
   "select": {
     "placeholder": "Select an option",

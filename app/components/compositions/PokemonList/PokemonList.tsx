@@ -28,25 +28,13 @@ const PokemonList = () => {
     return <NotFound type={NotFoundTypes.POKEMON_LIST} />;
   }
 
+  const listProps = { items, hasNextPage, isFetchingNextPage, fetchNextPage };
+
   if (isVirtualized) {
-    return (
-      <PokemonVirtualizedList
-        items={items}
-        hasNextPage={hasNextPage}
-        isFetchingNextPage={isFetchingNextPage}
-        fetchNextPage={fetchNextPage}
-      />
-    );
+    return <PokemonVirtualizedList {...listProps} />;
   }
 
-  return (
-    <PokemonPlainList
-      items={items}
-      hasNextPage={hasNextPage}
-      isFetchingNextPage={isFetchingNextPage}
-      fetchNextPage={fetchNextPage}
-    />
-  );
+  return <PokemonPlainList {...listProps} />;
 };
 
 export default PokemonList;
