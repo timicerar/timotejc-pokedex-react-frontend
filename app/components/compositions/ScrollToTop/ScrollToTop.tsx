@@ -39,7 +39,7 @@ const ScrollToTop = () => {
   return (
     <Button
       type="button"
-      variant={ButtonVariants.PRIMARY}
+      variant={ButtonVariants.DESTRUCTIVE}
       ariaLabel={t('shared.scrollToTop')}
       leadingIcon={<FontAwesomeIcon icon={faArrowUp} aria-hidden="true" />}
       className={classNames(classes.scrollToTop, {

@@ -3,12 +3,13 @@ import PokemonFilters from '~/components/compositions/PokemonFilters/PokemonFilt
 import PokemonList from '~/components/compositions/PokemonList/PokemonList';
 import ScrollToTop from '~/components/compositions/ScrollToTop/ScrollToTop';
 import { useLayoutFilters } from '~/components/layouts/DefaultLayout/hooks/useLayoutFilters';
+import { Breakpoints } from '~/constants/breakpoints';
 
 const PokedexPage = () => {
   useLayoutFilters(<PokemonFilters />);
 
   return (
-    <Container>
+    <Container maxWidth={Breakpoints.xl}>
       <PokemonList />
       <ScrollToTop />
     </Container>
