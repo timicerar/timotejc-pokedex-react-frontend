@@ -1,5 +1,4 @@
 import { getStaleGcTime } from '~/api';
 
 export const POKEMON_LIST_LIMIT = 25;
-export const POKEMON_STALE_TIME = getStaleGcTime(8 * 60);
-export const POKEMON_GC_TIME = getStaleGcTime(8 * 60 + 15);
+export const POKEMON_GC_TIME = getStaleGcTime(8 * 60);

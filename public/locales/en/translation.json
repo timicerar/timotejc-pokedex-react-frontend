@@ -23,7 +23,7 @@
     "reset": "Clear"
   },
   "pokemonFilters": {
-    "searchPlaceholder": "Search Pokémon by name or ID"
+    "searchPlaceholder": "Search Pokémon by name"
   },
   "theme": {
     "toggle": "Toggle theme",
