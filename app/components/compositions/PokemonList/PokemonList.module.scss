@@ -12,6 +12,10 @@
   width: 100%;
 }
 
+.sentinel {
+  height: 1px;
+}
+
 // Keep in sync with the column counts in ./hooks/useColumnCount.ts.
 .grid {
   display: grid;

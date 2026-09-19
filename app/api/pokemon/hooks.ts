@@ -13,31 +13,24 @@ import {
   getPokemonType,
 } from '~/api/pokemon';
 import { PokemonQueryKeys } from '~/api/pokemon/queryKeys';
-import { ElementIds } from '~/constants/element-ids';
 import { POKEMON_GC_TIME } from '~/constants/pokemon';
 import { PokemonGenerations } from '~/constants/pokemon-generations';
 import { PokemonTypes } from '~/constants/pokemon-types';
 import { useFilteredPokemons } from '~/hooks/useFilteredPokemons';
-import { useInfiniteVirtualizer } from '~/hooks/useInfiniteVirtualizer';
 import { usePokemonsByFacets } from '~/hooks/usePokemonsByFacets';
 import { getPokemonListConfig } from '~/utils/filterUtils';
 
 type UsePokemonsOptions = {
-  columnCount?: number;
-  estimateRowSize?: number;
-  overscan?: number;
+  maxItems?: number | null;
+  limit?: number | null;
 };
 
 export const usePokemons = (
   filters?: PokemonFilters,
-  {
-    columnCount = 1,
-    estimateRowSize = 272,
-    overscan = 3,
-  }: UsePokemonsOptions = {},
+  { maxItems = null, limit = null }: UsePokemonsOptions = {},
 ) => {
   const { search, types, generations, hasFacetFilter, listLimit } =
-    getPokemonListConfig(filters);
+    getPokemonListConfig(filters, limit);
 
   const typesQuery = usePokemonTypes({ enabled: types?.length > 0 });
   const generationsQuery = usePokemonGenerations({
@@ -71,9 +64,23 @@ export const usePokemons = (
     selectedGenerations: generations,
   });
 
-  const items = useFilteredPokemons(facetPokemons ?? basePokemons, search);
+  const filteredItems = useFilteredPokemons(
+    facetPokemons ?? basePokemons,
+    search,
+  );
 
-  const hasNextPage = hasFacetFilter ? false : infiniteQuery.hasNextPage;
+  const items = useMemo(
+    () =>
+      maxItems !== null ? filteredItems.slice(0, maxItems) : filteredItems,
+    [filteredItems, maxItems],
+  );
+
+  const hasNextPage = hasFacetFilter
+    ? false
+    : maxItems !== null
+      ? Boolean(infiniteQuery.hasNextPage) && items.length < maxItems
+      : infiniteQuery.hasNextPage;
+
   const isFetchingNextPage = hasFacetFilter
     ? false
     : infiniteQuery.isFetchingNextPage;
@@ -88,18 +95,6 @@ export const usePokemons = (
     ? typesQuery.isError || generationsQuery.isError
     : infiniteQuery.isError;
 
-  const { rowVirtualizer, rowCount } = useInfiniteVirtualizer({
-    itemCount: items.length,
-    columnCount,
-    estimateRowSize,
-    overscan,
-    gap: 24,
-    hasNextPage,
-    isFetchingNextPage,
-    fetchNextPage,
-    getScrollElement: () => document.getElementById(ElementIds.MAIN_CONTENT),
-  });
-
   return {
     items,
     isLoading,
@@ -107,9 +102,6 @@ export const usePokemons = (
     hasNextPage,
     isFetchingNextPage,
     fetchNextPage,
-    columnCount,
-    rowCount,
-    rowVirtualizer,
   };
 };
 

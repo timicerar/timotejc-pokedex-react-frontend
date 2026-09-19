@@ -27,19 +27,23 @@ export type PokemonListConfig = {
 
 export const getPokemonListConfig = (
   filters?: PokemonFilters,
+  limit?: number | null,
 ): PokemonListConfig => {
   const search = filters?.search?.trim() ?? '';
   const types = filters?.type ?? [];
   const generations = filters?.generation ?? [];
   const hasFacetFilter = types.length > 0 || generations.length > 0;
   const isFetchAll = Boolean(search) || hasFacetFilter;
+  const defaultListLimit = isFetchAll
+    ? POKEMON_LIST_ALL_LIMIT
+    : POKEMON_LIST_LIMIT;
 
   return {
     search,
     types,
     generations,
     hasFacetFilter,
-    listLimit: isFetchAll ? POKEMON_LIST_ALL_LIMIT : POKEMON_LIST_LIMIT,
+    listLimit: limit ?? defaultListLimit,
   };
 };
 
