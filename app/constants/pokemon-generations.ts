@@ -1,13 +1,13 @@
 export const PokemonGenerations = {
-  GEN_1: 'gen1',
-  GEN_2: 'gen2',
-  GEN_3: 'gen3',
-  GEN_4: 'gen4',
-  GEN_5: 'gen5',
-  GEN_6: 'gen6',
-  GEN_7: 'gen7',
-  GEN_8: 'gen8',
-  GEN_9: 'gen9',
+  GEN_1: 'generation-i',
+  GEN_2: 'generation-ii',
+  GEN_3: 'generation-iii',
+  GEN_4: 'generation-iv',
+  GEN_5: 'generation-v',
+  GEN_6: 'generation-vi',
+  GEN_7: 'generation-vii',
+  GEN_8: 'generation-viii',
+  GEN_9: 'generation-ix',
 } as const;
 
 export type PokemonGeneration =

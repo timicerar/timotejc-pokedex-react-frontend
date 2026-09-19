@@ -72,15 +72,15 @@
     "allTypes": "All Types"
   },
   "pokemonGenerations": {
-    "gen1": "Generation I",
-    "gen2": "Generation II",
-    "gen3": "Generation III",
-    "gen4": "Generation IV",
-    "gen5": "Generation V",
-    "gen6": "Generation VI",
-    "gen7": "Generation VII",
-    "gen8": "Generation VIII",
-    "gen9": "Generation IX"
+    "generation-i": "Generation I",
+    "generation-ii": "Generation II",
+    "generation-iii": "Generation III",
+    "generation-iv": "Generation IV",
+    "generation-v": "Generation V",
+    "generation-vi": "Generation VI",
+    "generation-vii": "Generation VII",
+    "generation-viii": "Generation VIII",
+    "generation-ix": "Generation IX"
   },
   "selectPokemonGeneration": {
     "label": "Generation",
