@@ -24,7 +24,7 @@ const PokedexPage = () => {
           })
         }
       >
-        Open Pokémon details modal
+        Details
       </Button>
     </Container>
   );

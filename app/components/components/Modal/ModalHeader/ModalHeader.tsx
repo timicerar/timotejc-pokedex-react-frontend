@@ -12,6 +12,7 @@ const ModalHeader = ({
   title,
   onClose,
   closeLabel: closeLabelProp,
+  hideClose = false,
   className,
   ...props
 }: ModalHeaderProps) => {
@@ -19,6 +20,10 @@ const ModalHeader = ({
   const closeLabel = closeLabelProp ?? t('modal.close');
 
   if (!title) {
+    if (hideClose) {
+      return null;
+    }
+
     return (
       <Button
         variant={ButtonVariants.SECONDARY}
@@ -37,13 +42,15 @@ const ModalHeader = ({
       <Typography as="h2" type="card-title" className={classes.title}>
         {title}
       </Typography>
-      <Button
-        variant={ButtonVariants.SECONDARY}
-        size={ButtonSizes.SM}
-        ariaLabel={closeLabel}
-        onClick={onClose}
-        leadingIcon={<FontAwesomeIcon icon={faXmark} />}
-      />
+      {!hideClose && (
+        <Button
+          variant={ButtonVariants.SECONDARY}
+          size={ButtonSizes.SM}
+          ariaLabel={closeLabel}
+          onClick={onClose}
+          leadingIcon={<FontAwesomeIcon icon={faXmark} />}
+        />
+      )}
     </div>
   );
 };

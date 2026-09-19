@@ -87,6 +87,12 @@
     "allGenerations": "All Generations"
   },
   "modal": {
-    "close": "Close"
+    "close": "Close",
+    "confirmationModal": {
+      "title": "Are you sure?",
+      "description": "This action cannot be undone.",
+      "confirm": "Confirm",
+      "cancel": "Cancel"
+    }
   }
 }
