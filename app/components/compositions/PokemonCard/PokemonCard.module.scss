@@ -1,3 +1,5 @@
+@use 'app/styles/mixins' as *;
+
 .card {
   isolation: isolate;
   position: relative;
@@ -6,4 +8,9 @@
   align-items: center;
   min-height: 272px;
   gap: var(--space-3);
+  overflow: hidden;
+
+  @include mq(sm) {
+    min-height: 212px;
+  }
 }

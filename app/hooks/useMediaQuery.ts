@@ -11,14 +11,18 @@ const buildMediaQuery = (breakpoint: Breakpoint, type: MediaQueryType) => {
   return `only screen and (${type}-width: ${width}px)`;
 };
 
+const getMatches = (query: string) =>
+  typeof window !== 'undefined' ? window.matchMedia(query).matches : false;
+
 export const useMediaQuery = (
   breakpoint: Breakpoint,
   type: MediaQueryType = MediaQueryTypes.MAX,
 ) => {
-  const [matches, setMatches] = useState(false);
+  const query = buildMediaQuery(breakpoint, type);
+  const [matches, setMatches] = useState(() => getMatches(query));
 
   useEffect(() => {
-    const mediaQueryList = window.matchMedia(buildMediaQuery(breakpoint, type));
+    const mediaQueryList = window.matchMedia(query);
 
     setMatches(mediaQueryList.matches);
 
@@ -29,7 +33,7 @@ export const useMediaQuery = (
     mediaQueryList.addEventListener('change', handleChange);
 
     return () => mediaQueryList.removeEventListener('change', handleChange);
-  }, [breakpoint, type]);
+  }, [query]);
 
   return matches;
 };

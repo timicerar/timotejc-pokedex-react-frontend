@@ -1,7 +1,7 @@
 import { faHome } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
-import { useMemo } from 'react';
+import { memo, useMemo } from 'react';
 import { useNavigate } from 'react-router';
 import Button from '~/components/components/Button/Button';
 import Logo from '~/components/components/Logo/Logo';
@@ -49,4 +49,4 @@ const NotFound = ({ type }: NotFoundProps) => {
   );
 };
 
-export default NotFound;
+export default memo(NotFound);

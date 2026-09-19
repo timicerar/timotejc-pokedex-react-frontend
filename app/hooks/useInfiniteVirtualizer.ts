@@ -1,14 +1,16 @@
 import { useVirtualizer } from '@tanstack/react-virtual';
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 
 type UseInfiniteVirtualizerOptions = {
   itemCount: number;
   columnCount?: number;
   estimateRowSize?: number;
   overscan?: number;
+  gap?: number;
   hasNextPage?: boolean;
   isFetchingNextPage?: boolean;
   fetchNextPage: () => void;
+  getScrollElement: () => Element | null;
 };
 
 export const useInfiniteVirtualizer = ({
@@ -16,19 +18,20 @@ export const useInfiniteVirtualizer = ({
   columnCount = 1,
   estimateRowSize = 260,
   overscan = 3,
+  gap = 0,
   hasNextPage,
   isFetchingNextPage,
   fetchNextPage,
+  getScrollElement,
 }: UseInfiniteVirtualizerOptions) => {
-  const scrollElementRef = useRef<HTMLDivElement | null>(null);
-
-  const rowCount = Math.ceil(itemCount / columnCount) + (hasNextPage ? 1 : 0);
+  const rowCount = Math.ceil((itemCount + (hasNextPage ? 1 : 0)) / columnCount);
 
   const rowVirtualizer = useVirtualizer({
     count: rowCount,
-    getScrollElement: () => scrollElementRef.current,
+    getScrollElement,
     estimateSize: () => estimateRowSize,
     overscan,
+    gap,
   });
 
   const virtualRows = rowVirtualizer.getVirtualItems();
@@ -48,7 +51,6 @@ export const useInfiniteVirtualizer = ({
   }, [virtualRows, rowCount, hasNextPage, isFetchingNextPage, fetchNextPage]);
 
   return {
-    scrollElementRef,
     rowVirtualizer,
     rowCount,
   };

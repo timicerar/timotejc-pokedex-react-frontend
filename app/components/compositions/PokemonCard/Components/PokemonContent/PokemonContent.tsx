@@ -6,12 +6,18 @@ import Typography from '~/components/components/Typography/Typography';
 import type { PokemonContentProps } from '~/components/compositions/PokemonCard/Components/PokemonContent/PokemonContent.interface';
 import PokemonContentError from '~/components/compositions/PokemonCard/Components/PokemonContentError/PokemonContentError';
 import PokemonContentSkeleton from '~/components/compositions/PokemonCard/Components/PokemonContentSkeleton/PokemonContentSkeleton';
+import { BadgeSizes } from '~/constants/badge';
 import type { PokemonType } from '~/constants/pokemon-types';
 import { TypographyTypes } from '~/constants/typography';
+import { useMediaQuery } from '~/hooks/useMediaQuery';
 import classes from './PokemonContent.module.scss';
+
+const DESKTOP_IMAGE_SIZE = 160;
+const MOBILE_IMAGE_SIZE = 120;
 
 const PokemonContent = ({ name }: PokemonContentProps) => {
   const { t } = useTranslation();
+  const isMobile = useMediaQuery('sm');
   const { data: pokemon, isLoading, isError } = usePokemon({ name });
 
   if (isLoading) {
@@ -26,6 +32,7 @@ const PokemonContent = ({ name }: PokemonContentProps) => {
     pokemon.sprites?.other?.['official-artwork']?.front_default ??
     pokemon.sprites?.front_default ??
     '';
+  const imageSize = isMobile ? MOBILE_IMAGE_SIZE : DESKTOP_IMAGE_SIZE;
 
   return (
     <>
@@ -39,8 +46,8 @@ const PokemonContent = ({ name }: PokemonContentProps) => {
       <Image
         src={image}
         alt={pokemon?.name}
-        width={160}
-        height={160}
+        width={imageSize}
+        height={imageSize}
         className={classes.image}
       />
       <div className={classes.wrapper}>
@@ -52,7 +59,11 @@ const PokemonContent = ({ name }: PokemonContentProps) => {
             const pokemonType = type?.name as PokemonType;
 
             return (
-              <Badge key={pokemonType} variant={pokemonType}>
+              <Badge
+                key={pokemonType}
+                variant={pokemonType}
+                size={isMobile ? BadgeSizes.SM : BadgeSizes.DEFAULT}
+              >
                 {t(`pokemonTypes.${pokemonType}`)}
               </Badge>
             );

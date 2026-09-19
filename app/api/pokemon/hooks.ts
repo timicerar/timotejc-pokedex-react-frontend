@@ -8,6 +8,7 @@ import type {
 } from '~/api/models/PokemonFilters';
 import { getPokemon, getPokemons } from '~/api/pokemon';
 import { PokemonQueryKeys } from '~/api/pokemon/queryKeys';
+import { ElementIds } from '~/constants/element-ids';
 import {
   POKEMON_GC_TIME,
   POKEMON_LIST_LIMIT,
@@ -25,7 +26,7 @@ export const usePokemons = (
   filters?: PokemonFilters,
   {
     columnCount = 1,
-    estimateRowSize = 260,
+    estimateRowSize = 272,
     overscan = 3,
   }: UsePokemonsOptions = {},
 ) => {
@@ -52,24 +53,23 @@ export const usePokemons = (
     [infiniteQuery.data],
   );
 
-  const { scrollElementRef, rowVirtualizer, rowCount } = useInfiniteVirtualizer(
-    {
-      itemCount: items.length,
-      columnCount,
-      estimateRowSize,
-      overscan,
-      hasNextPage,
-      isFetchingNextPage,
-      fetchNextPage,
-    },
-  );
+  const { rowVirtualizer, rowCount } = useInfiniteVirtualizer({
+    itemCount: items.length,
+    columnCount,
+    estimateRowSize,
+    overscan,
+    gap: 16,
+    hasNextPage,
+    isFetchingNextPage,
+    fetchNextPage,
+    getScrollElement: () => document.getElementById(ElementIds.MAIN_CONTENT),
+  });
 
   return {
     ...infiniteQuery,
     items,
     columnCount,
     rowCount,
-    scrollElementRef,
     rowVirtualizer,
   };
 };
