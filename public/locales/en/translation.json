@@ -85,5 +85,8 @@
   "selectPokemonGeneration": {
     "label": "Generation",
     "allGenerations": "All Generations"
+  },
+  "modal": {
+    "close": "Close"
   }
 }

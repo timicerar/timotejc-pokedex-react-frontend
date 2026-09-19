@@ -3,6 +3,7 @@ import type { PropsWithChildren } from 'react';
 import { I18nextProvider } from 'react-i18next';
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router';
 import SplashScreen from '~/components/components/SplashScreen/SplashScreen';
+import ModalProvider from '~/components/providers/ModalProvider/ModalProvider';
 import i18n from '~/lib/i18n';
 import { queryClient } from '~/lib/queryClient';
 import '~/styles/tokens.css';
@@ -81,6 +82,7 @@ const Root = () => {
       <QueryClientProvider client={queryClient}>
         <I18nextProvider i18n={i18n}>
           <Outlet />
+          <ModalProvider />
         </I18nextProvider>
       </QueryClientProvider>
     </ThemeProvider>
