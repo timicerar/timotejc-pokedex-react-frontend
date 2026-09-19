@@ -1,0 +1,26 @@
+.id {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-4);
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: var(--space-3);
+}
+
+.image {
+  object-fit: contain;
+}
+
+.name {
+  text-transform: capitalize;
+}
+
+.types {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}

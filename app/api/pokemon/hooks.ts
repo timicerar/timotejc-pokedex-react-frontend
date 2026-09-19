@@ -74,12 +74,20 @@ export const usePokemons = (
   };
 };
 
-export const usePokemon = (params: PokemonDetailsParams) => {
+type UsePokemonOptions = {
+  enabled?: boolean;
+};
+
+export const usePokemon = (
+  params: PokemonDetailsParams,
+  { enabled = true }: UsePokemonOptions = {},
+) => {
   return useQuery({
     queryKey: PokemonQueryKeys.pokemonDetails(params),
     queryFn: () => getPokemon(params),
     refetchOnMount: true,
-    enabled: Boolean(params?.id || params?.name),
+    retry: 2,
+    enabled: enabled && Boolean(params?.id || params?.name),
     staleTime: POKEMON_STALE_TIME,
     gcTime: POKEMON_GC_TIME,
   });
