@@ -53,5 +53,26 @@ export const usePokemonFilters = () => {
     [setParam],
   );
 
-  return { filters, setSearch, setTypes, setGenerations };
+  const clearFilters = useCallback(() => {
+    setSearchParams(
+      (prev) => {
+        const next = new URLSearchParams(prev);
+
+        next.delete('search');
+        next.delete('type');
+        next.delete('generation');
+
+        return next;
+      },
+      { replace: true },
+    );
+  }, [setSearchParams]);
+
+  return {
+    filters,
+    setSearch,
+    setTypes,
+    setGenerations,
+    clearFilters,
+  };
 };

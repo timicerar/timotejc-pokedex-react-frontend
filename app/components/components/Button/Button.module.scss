@@ -92,7 +92,12 @@
 
 .rounded {
   @extend %secondary-surface;
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   padding: 0;
+
+  &.sm {
+    width: 32px;
+    height: 32px;
+  }
 }

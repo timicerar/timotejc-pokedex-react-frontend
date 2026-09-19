@@ -19,7 +19,7 @@ const ThemeToggle = ({ showLabel = false }: ThemeToggleProps) => {
 
   return (
     <Button
-      variant={ButtonVariants.SECONDARY}
+      variant={isMobile ? ButtonVariants.ROUNDED : ButtonVariants.SECONDARY}
       size={isMobile ? ButtonSizes.SM : ButtonSizes.DEFAULT}
       ariaLabel={t('theme.toggle')}
       onClick={toggleTheme}

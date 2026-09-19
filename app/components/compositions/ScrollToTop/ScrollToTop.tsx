@@ -6,12 +6,15 @@ import { useTranslation } from 'react-i18next';
 import Button from '~/components/components/Button/Button';
 import { ButtonVariants } from '~/constants/button';
 import { ElementIds } from '~/constants/element-ids';
+import { useMediaQuery } from '~/hooks/useMediaQuery';
 import classes from './ScrollToTop.module.scss';
 
 const SCROLL_THRESHOLD = 400;
 
 const ScrollToTop = () => {
   const { t } = useTranslation();
+  const isMobile = useMediaQuery('xs');
+
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -47,7 +50,7 @@ const ScrollToTop = () => {
       })}
       onClick={handleClick}
     >
-      {t('shared.scrollToTop')}
+      {!isMobile && t('shared.scrollToTop')}
     </Button>
   );
 };

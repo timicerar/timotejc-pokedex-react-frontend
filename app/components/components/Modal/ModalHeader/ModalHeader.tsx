@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import Button from '~/components/components/Button/Button';
 import type { ModalHeaderProps } from '~/components/components/Modal/ModalHeader/ModalHeader.interface';
 import Typography from '~/components/components/Typography/Typography';
-import { ButtonVariants } from '~/constants/button';
+import { ButtonSizes, ButtonVariants } from '~/constants/button';
 import classes from './ModalHeader.module.scss';
 
 const ModalHeader = ({
@@ -27,6 +27,7 @@ const ModalHeader = ({
     return (
       <Button
         variant={ButtonVariants.ROUNDED}
+        size={ButtonSizes.SM}
         ariaLabel={closeLabel}
         onClick={onClose}
         leadingIcon={<FontAwesomeIcon icon={faXmark} />}
@@ -44,6 +45,7 @@ const ModalHeader = ({
       {!hideClose && (
         <Button
           variant={ButtonVariants.ROUNDED}
+          size={ButtonSizes.SM}
           ariaLabel={closeLabel}
           onClick={onClose}
           leadingIcon={<FontAwesomeIcon icon={faXmark} />}

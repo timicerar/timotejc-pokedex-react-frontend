@@ -34,16 +34,16 @@ export const getPokemonListConfig = (
   const generations = filters?.generation ?? [];
   const hasFacetFilter = types.length > 0 || generations.length > 0;
   const isFetchAll = Boolean(search) || hasFacetFilter;
-  const defaultListLimit = isFetchAll
+  const listLimit = isFetchAll
     ? POKEMON_LIST_ALL_LIMIT
-    : POKEMON_LIST_LIMIT;
+    : (limit ?? POKEMON_LIST_LIMIT);
 
   return {
     search,
     types,
     generations,
     hasFacetFilter,
-    listLimit: limit ?? defaultListLimit,
+    listLimit,
   };
 };
 
