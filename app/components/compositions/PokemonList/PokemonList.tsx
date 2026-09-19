@@ -7,13 +7,15 @@ import {
 import PokemonListRow from '~/components/compositions/PokemonList/PokemonListRow';
 import PokemonListSkeleton from '~/components/compositions/PokemonList/PokemonListSkeleton';
 import { NotFoundTypes } from '~/constants/not-found';
+import { usePokemonFilters } from '~/hooks/usePokemonFilters';
 import classes from './PokemonList.module.scss';
 
 const PokemonList = () => {
+  const { filters } = usePokemonFilters();
   const columnCount = useColumnCount();
 
   const { items, isLoading, isError, hasNextPage, rowCount, rowVirtualizer } =
-    usePokemons(undefined, {
+    usePokemons(filters, {
       columnCount,
       estimateRowSize: ESTIMATE_ROW_SIZE,
     });

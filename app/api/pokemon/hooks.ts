@@ -14,10 +14,13 @@ import {
 } from '~/api/pokemon';
 import { PokemonQueryKeys } from '~/api/pokemon/queryKeys';
 import { ElementIds } from '~/constants/element-ids';
-import { POKEMON_GC_TIME, POKEMON_LIST_LIMIT } from '~/constants/pokemon';
+import { POKEMON_GC_TIME } from '~/constants/pokemon';
 import { PokemonGenerations } from '~/constants/pokemon-generations';
 import { PokemonTypes } from '~/constants/pokemon-types';
+import { useFilteredPokemons } from '~/hooks/useFilteredPokemons';
 import { useInfiniteVirtualizer } from '~/hooks/useInfiniteVirtualizer';
+import { usePokemonsByFacets } from '~/hooks/usePokemonsByFacets';
+import { getPokemonListConfig } from '~/utils/filterUtils';
 
 type UsePokemonsOptions = {
   columnCount?: number;
@@ -33,28 +36,57 @@ export const usePokemons = (
     overscan = 3,
   }: UsePokemonsOptions = {},
 ) => {
+  const { search, types, generations, hasFacetFilter, listLimit } =
+    getPokemonListConfig(filters);
+
+  const typesQuery = usePokemonTypes({ enabled: types?.length > 0 });
+  const generationsQuery = usePokemonGenerations({
+    enabled: generations?.length > 0,
+  });
+
   const infiniteQuery = useInfiniteQuery({
-    queryKey: PokemonQueryKeys.pokemonList({
-      limit: POKEMON_LIST_LIMIT,
-      ...filters,
-    }),
+    queryKey: PokemonQueryKeys.pokemonList({ limit: listLimit }),
     queryFn: ({ pageParam }) =>
-      getPokemons({ ...filters, limit: POKEMON_LIST_LIMIT, offset: pageParam }),
+      getPokemons({ limit: listLimit, offset: pageParam }),
     initialPageParam: 0,
     getNextPageParam: (lastPage, allPages) =>
-      lastPage?.next ? allPages.length * POKEMON_LIST_LIMIT : undefined,
+      lastPage?.next ? allPages.length * listLimit : undefined,
+    enabled: !hasFacetFilter,
     refetchOnMount: true,
     staleTime: Infinity,
     gcTime: POKEMON_GC_TIME,
   });
 
-  const { hasNextPage, isFetchingNextPage, fetchNextPage } = infiniteQuery;
-
-  const items = useMemo<NamedAPIResource[]>(
+  const basePokemons = useMemo<NamedAPIResource[]>(
     () =>
       infiniteQuery.data?.pages.flatMap((page) => page?.results ?? []) ?? [],
     [infiniteQuery.data],
   );
+
+  const facetPokemons = usePokemonsByFacets({
+    enabled: hasFacetFilter,
+    types: typesQuery?.data,
+    generations: generationsQuery?.data,
+    selectedTypes: types,
+    selectedGenerations: generations,
+  });
+
+  const items = useFilteredPokemons(facetPokemons ?? basePokemons, search);
+
+  const hasNextPage = hasFacetFilter ? false : infiniteQuery.hasNextPage;
+  const isFetchingNextPage = hasFacetFilter
+    ? false
+    : infiniteQuery.isFetchingNextPage;
+  const { fetchNextPage } = infiniteQuery;
+
+  const isLoading = hasFacetFilter
+    ? (types.length > 0 && typesQuery.isLoading) ||
+      (generations.length > 0 && generationsQuery.isLoading)
+    : infiniteQuery.isLoading;
+
+  const isError = hasFacetFilter
+    ? typesQuery.isError || generationsQuery.isError
+    : infiniteQuery.isError;
 
   const { rowVirtualizer, rowCount } = useInfiniteVirtualizer({
     itemCount: items.length,
@@ -69,8 +101,12 @@ export const usePokemons = (
   });
 
   return {
-    ...infiniteQuery,
     items,
+    isLoading,
+    isError,
+    hasNextPage,
+    isFetchingNextPage,
+    fetchNextPage,
     columnCount,
     rowCount,
     rowVirtualizer,
@@ -96,19 +132,32 @@ export const usePokemon = (
   });
 };
 
-export const usePokemonTypes = () => {
+type UsePokemonTypesOptions = {
+  enabled?: boolean;
+};
+
+export const usePokemonTypes = ({
+  enabled = true,
+}: UsePokemonTypesOptions = {}) => {
   return useQuery({
     queryKey: PokemonQueryKeys.pokemonTypes(),
     queryFn: () =>
       Promise.all(
         Object.values(PokemonTypes).map((name) => getPokemonType({ name })),
       ),
+    enabled,
     staleTime: Infinity,
     gcTime: Infinity,
   });
 };
 
-export const usePokemonGenerations = () => {
+type UsePokemonGenerationsOptions = {
+  enabled?: boolean;
+};
+
+export const usePokemonGenerations = ({
+  enabled = true,
+}: UsePokemonGenerationsOptions = {}) => {
   return useQuery({
     queryKey: PokemonQueryKeys.pokemonGenerations(),
     queryFn: () =>
@@ -117,6 +166,7 @@ export const usePokemonGenerations = () => {
           getPokemonGeneration({ name }),
         ),
       ),
+    enabled,
     staleTime: Infinity,
     gcTime: Infinity,
   });
