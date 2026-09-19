@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { useDragScroll } from '~/components/components/Tabs/hooks/useDragScroll';
 import type { TabsListProps } from '~/components/components/Tabs/TabsList/TabsList.interface';
-import classes from '~/components/components/Tabs/TabsList/TabsList.module.scss';
+import classes from './TabsList.module.scss';
 
 const TabsList = ({
   wrap = true,

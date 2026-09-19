@@ -1,9 +1,9 @@
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
-import classes from '~/components/components/Select/SelectOption/SelectOption.module.scss';
 import type { SelectResetOptionProps } from '~/components/components/Select/SelectOption/SelectResetOption.interface';
 import Typography from '~/components/components/Typography/Typography';
+import classes from './SelectOption.module.scss';
 
 const SelectResetOption = ({
   label,

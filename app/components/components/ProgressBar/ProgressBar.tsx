@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 import { useEffect, useState } from 'react';
 import type { ProgressBarProps } from '~/components/components/ProgressBar/ProgressBar.interface';
-import classes from '~/components/components/ProgressBar/ProgressBar.module.scss';
 import { DEFAULT_PROGRESS_MAX_VALUE } from '~/constants/progress-bar';
+import classes from './ProgressBar.module.scss';
 
 const ProgressBar = ({
   value,

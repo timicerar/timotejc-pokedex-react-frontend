@@ -48,7 +48,7 @@
   }
 }
 
-.secondary {
+%secondary-surface {
   background: var(--muted);
   color: var(--foreground);
   border: 2px solid var(--border);
@@ -60,6 +60,10 @@
       box-shadow: var(--shadow-md);
     }
   }
+}
+
+.secondary {
+  @extend %secondary-surface;
 }
 
 .ghost {
@@ -84,4 +88,11 @@
       box-shadow: var(--shadow-md);
     }
   }
+}
+
+.rounded {
+  @extend %secondary-surface;
+  width: 32px;
+  height: 32px;
+  padding: 0;
 }

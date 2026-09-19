@@ -4,7 +4,7 @@ import { useMemo, useState } from 'react';
 import { Outlet } from 'react-router';
 import NavBar from '~/components/compositions/NavBar/NavBar';
 import type { DefaultLayoutContext } from '~/components/layouts/DefaultLayout/DefaultLayout.interface';
-import classes from '~/components/layouts/DefaultLayout/DefaultLayout.module.scss';
+import classes from './DefaultLayout.module.scss';
 
 const DefaultLayout = () => {
   const [filters, setFilters] = useState<ReactNode>(null);

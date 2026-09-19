@@ -7,9 +7,9 @@ import Button from '~/components/components/Button/Button';
 import Logo from '~/components/components/Logo/Logo';
 import Typography from '~/components/components/Typography/Typography';
 import type { NotFoundProps } from '~/components/compositions/NotFound/NotFound.interface';
-import classes from '~/components/compositions/NotFound/NotFound.module.scss';
 import { ButtonVariants } from '~/constants/button';
 import { getNotFoundData } from '~/utils/notFoundUtils';
+import classes from './NotFound.module.scss';
 
 const NotFound = ({ type }: NotFoundProps) => {
   const navigate = useNavigate();

@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import type { DividerProps } from '~/components/components/Divider/Divider.interface';
-import classes from '~/components/components/Divider/Divider.module.scss';
+import classes from './Divider.module.scss';
 
 const Divider = ({ className, ...props }: DividerProps) => {
   return (

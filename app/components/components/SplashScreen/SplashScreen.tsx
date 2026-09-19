@@ -1,5 +1,5 @@
 import Logo from '~/components/components/Logo/Logo';
-import classes from '~/components/components/SplashScreen/SplashScreen.module.scss';
+import classes from './SplashScreen.module.scss';
 
 const SplashScreen = () => {
   return (

@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 import { useEffect, useRef, useState } from 'react';
 import type { ImageProps } from '~/components/components/Image/Image.interface';
-import classes from '~/components/components/Image/Image.module.scss';
 import Skeleton from '~/components/components/Skeleton/Skeleton';
+import classes from './Image.module.scss';
 
 type Status = 'loading' | 'loaded' | 'error';
 

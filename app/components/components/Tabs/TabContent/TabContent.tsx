@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { useTabsContext } from '~/components/components/Tabs/hooks/useTabsContext';
 import type { TabContentProps } from '~/components/components/Tabs/TabContent/TabContent.interface';
-import classes from '~/components/components/Tabs/TabContent/TabContent.module.scss';
+import classes from './TabContent.module.scss';
 
 const TabContent = ({
   value,

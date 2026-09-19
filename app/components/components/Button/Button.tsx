@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import type { ButtonProps } from '~/components/components/Button/Button.interface';
-import classes from '~/components/components/Button/Button.module.scss';
 import { ButtonSizes, ButtonVariants } from '~/constants/button';
+import classes from './Button.module.scss';
 
 const Button = ({
   type = 'button',

@@ -3,9 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Input from '~/components/components/Input/Input';
-import classes from '~/components/compositions/PokemonFilters/PokemonFilters.module.scss';
 import SelectPokemonGeneration from '~/components/compositions/SelectPokemonGeneration/SelectPokemonGeneration';
 import SelectPokemonType from '~/components/compositions/SelectPokemonType/SelectPokemonType';
+import classes from './PokemonFilters.module.scss';
 
 const PokemonFilters = () => {
   const { t } = useTranslation();

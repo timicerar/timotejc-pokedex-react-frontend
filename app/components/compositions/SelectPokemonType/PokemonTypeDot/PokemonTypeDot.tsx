@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import type { PokemonTypeDotProps } from '~/components/compositions/SelectPokemonType/PokemonTypeDot/PokemonTypeDot.interface';
-import classes from '~/components/compositions/SelectPokemonType/PokemonTypeDot/PokemonTypeDot.module.scss';
 import { Colors } from '~/constants/colors';
+import classes from './PokemonTypeDot.module.scss';
 
 const PokemonTypeDot = ({ color, className }: PokemonTypeDotProps) => {
   return (

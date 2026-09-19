@@ -1,9 +1,9 @@
 import Divider from '~/components/components/Divider/Divider';
 import type { SelectOptionData } from '~/components/components/Select/Select.interface';
 import type { SelectMenuProps } from '~/components/components/Select/SelectMenu/SelectMenu.interface';
-import classes from '~/components/components/Select/SelectMenu/SelectMenu.module.scss';
 import SelectOption from '~/components/components/Select/SelectOption/SelectOption';
 import SelectResetOption from '~/components/components/Select/SelectOption/SelectResetOption';
+import classes from './SelectMenu.module.scss';
 
 const SelectMenu = <T extends SelectOptionData = SelectOptionData>({
   ref,

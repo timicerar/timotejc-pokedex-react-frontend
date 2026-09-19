@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
 import Typography from '~/components/components/Typography/Typography';
 import type { PokemonGenerationOptionProps } from '~/components/compositions/SelectPokemonGeneration/PokemonGenerationOption/PokemonGenerationOption.interface';
-import classes from '~/components/compositions/SelectPokemonGeneration/PokemonGenerationOption/PokemonGenerationOption.module.scss';
+import classes from './PokemonGenerationOption.module.scss';
 
 const PokemonGenerationOption = ({
   option,

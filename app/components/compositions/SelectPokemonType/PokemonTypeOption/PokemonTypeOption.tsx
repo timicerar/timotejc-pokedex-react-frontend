@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import Typography from '~/components/components/Typography/Typography';
 import PokemonTypeDot from '~/components/compositions/SelectPokemonType/PokemonTypeDot/PokemonTypeDot';
 import type { PokemonTypeOptionProps } from '~/components/compositions/SelectPokemonType/PokemonTypeOption/PokemonTypeOption.interface';
-import classes from '~/components/compositions/SelectPokemonType/PokemonTypeOption/PokemonTypeOption.module.scss';
+import classes from './PokemonTypeOption.module.scss';
 
 const PokemonTypeOption = ({ option, selected }: PokemonTypeOptionProps) => {
   return (

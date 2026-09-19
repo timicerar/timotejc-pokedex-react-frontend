@@ -13,10 +13,10 @@ import type {
   SelectOptionData,
   SelectProps,
 } from '~/components/components/Select/Select.interface';
-import classes from '~/components/components/Select/Select.module.scss';
 import SelectMenu from '~/components/components/Select/SelectMenu/SelectMenu';
 import SelectTrigger from '~/components/components/Select/SelectTrigger/SelectTrigger';
 import { useOnClickOutside } from '~/hooks/useOnClickOutside';
+import classes from './Select.module.scss';
 
 const Select = <T extends SelectOptionData = SelectOptionData>({
   options,

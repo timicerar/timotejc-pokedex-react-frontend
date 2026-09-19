@@ -5,8 +5,8 @@ import { Link, useLocation } from 'react-router';
 import Logo from '~/components/components/Logo/Logo';
 import ThemeToggle from '~/components/components/ThemeToggle/ThemeToggle';
 import Typography from '~/components/components/Typography/Typography';
-import classes from '~/components/compositions/NavBar/NavBar.module.scss';
 import { Routes } from '~/constants/routes';
+import classes from './NavBar.module.scss';
 
 const NavBar = () => {
   const { t } = useTranslation();

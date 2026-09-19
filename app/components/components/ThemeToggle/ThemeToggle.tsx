@@ -3,11 +3,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useTranslation } from 'react-i18next';
 import Button from '~/components/components/Button/Button';
 import type { ThemeToggleProps } from '~/components/components/ThemeToggle/ThemeToggle.interface';
-import styles from '~/components/components/ThemeToggle/ThemeToggle.module.scss';
 import { ButtonSizes, ButtonVariants } from '~/constants/button';
 import { useMediaQuery } from '~/hooks/useMediaQuery';
 import useTheme from '~/theme/hooks/useTheme';
 import { Themes } from '~/theme/Theme.interface';
+import styles from './ThemeToggle.module.scss';
 
 const ThemeToggle = ({ showLabel = false }: ThemeToggleProps) => {
   const { t } = useTranslation();

@@ -3,8 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
 import type { SelectOptionData } from '~/components/components/Select/Select.interface';
 import type { SelectOptionProps } from '~/components/components/Select/SelectOption/SelectOption.interface';
-import classes from '~/components/components/Select/SelectOption/SelectOption.module.scss';
 import Typography from '~/components/components/Typography/Typography';
+import classes from './SelectOption.module.scss';
 
 const SelectOption = <T extends SelectOptionData = SelectOptionData>({
   option,

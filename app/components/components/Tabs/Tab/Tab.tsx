@@ -2,8 +2,8 @@ import classNames from 'classnames';
 import type { KeyboardEvent } from 'react';
 import { useTabsContext } from '~/components/components/Tabs/hooks/useTabsContext';
 import type { TabProps } from '~/components/components/Tabs/Tab/Tab.interface';
-import classes from '~/components/components/Tabs/Tab/Tab.module.scss';
 import { focusTabAt } from '~/utils/tabsUtils';
+import classes from './Tab.module.scss';
 
 const Tab = ({
   value,

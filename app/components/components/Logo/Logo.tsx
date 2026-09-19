@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import type { LogoProps } from '~/components/components/Logo/Logo.interface';
-import classes from '~/components/components/Logo/Logo.module.scss';
+import classes from './Logo.module.scss';
 
 const alt = 'Pokédex';
 

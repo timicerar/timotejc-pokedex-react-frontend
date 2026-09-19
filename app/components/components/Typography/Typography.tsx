@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 import type { TypographyProps } from '~/components/components/Typography/Typography.interface';
-import classes from '~/components/components/Typography/Typography.module.scss';
 import { Colors } from '~/constants/colors';
 import { TypographyElements, TypographyTypes } from '~/constants/typography';
+import classes from './Typography.module.scss';
 
 const Typography = ({
   as = TypographyElements.P,

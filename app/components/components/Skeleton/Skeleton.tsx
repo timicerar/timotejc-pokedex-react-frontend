@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import type { SkeletonProps } from '~/components/components/Skeleton/Skeleton.interface';
-import classes from '~/components/components/Skeleton/Skeleton.module.scss';
+import classes from './Skeleton.module.scss';
 
 const Skeleton = ({
   borderRadius,

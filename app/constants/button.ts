@@ -3,6 +3,7 @@ export const ButtonVariants = {
   SECONDARY: 'secondary',
   GHOST: 'ghost',
   DESTRUCTIVE: 'destructive',
+  ROUNDED: 'rounded',
 } as const;
 
 export type ButtonVariant =

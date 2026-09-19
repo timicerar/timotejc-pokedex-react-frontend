@@ -2,9 +2,9 @@ import classNames from 'classnames';
 import type { CSSProperties } from 'react';
 import { useEffect, useRef, useState } from 'react';
 import type { ModalProps } from '~/components/components/Modal/Modal.interface';
-import classes from '~/components/components/Modal/Modal.module.scss';
 import { useMountTransition } from '~/hooks/useMountTransition';
 import { getModalId } from '~/utils/modalProviderUtils';
+import classes from './Modal.module.scss';
 
 const Modal = ({
   type,

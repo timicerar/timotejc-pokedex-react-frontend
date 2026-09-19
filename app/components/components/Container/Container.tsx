@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import type { ContainerProps } from '~/components/components/Container/Container.interface';
-import classes from '~/components/components/Container/Container.module.scss';
+import classes from './Container.module.scss';
 
 const Container = ({
   center,

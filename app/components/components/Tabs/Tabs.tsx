@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 import { useCallback, useId, useMemo, useState } from 'react';
 import type { TabsProps } from '~/components/components/Tabs/Tabs.interface';
-import classes from '~/components/components/Tabs/Tabs.module.scss';
 import { TabsContext } from '~/components/components/Tabs/TabsContext';
+import classes from './Tabs.module.scss';
 
 const Tabs = ({
   defaultValue,

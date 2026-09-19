@@ -2,8 +2,8 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
 import type { SelectTriggerProps } from '~/components/components/Select/SelectTrigger/SelectTrigger.interface';
-import classes from '~/components/components/Select/SelectTrigger/SelectTrigger.module.scss';
 import Typography from '~/components/components/Typography/Typography';
+import classes from './SelectTrigger.module.scss';
 
 const SelectTrigger = ({
   ref,

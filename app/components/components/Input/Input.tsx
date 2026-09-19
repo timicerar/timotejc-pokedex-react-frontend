@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import type { InputProps } from '~/components/components/Input/Input.interface';
-import classes from '~/components/components/Input/Input.module.scss';
+import classes from './Input.module.scss';
 
 const Input = ({
   type = 'text',

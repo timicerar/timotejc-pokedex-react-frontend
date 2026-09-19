@@ -4,5 +4,6 @@ import type { CardPadding } from '~/constants/card';
 export type CardProps = HTMLAttributes<HTMLElement> & {
   padding?: CardPadding;
   fullWidth?: boolean;
+  noShadow?: boolean;
   children?: ReactNode;
 };

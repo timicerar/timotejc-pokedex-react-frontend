@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import type { BadgeProps } from '~/components/components/Badge/Badge.interface';
-import classes from '~/components/components/Badge/Badge.module.scss';
 import { BadgeVariants } from '~/constants/badge';
+import classes from './Badge.module.scss';
 
 const Badge = ({
   variant = BadgeVariants.DEFAULT,

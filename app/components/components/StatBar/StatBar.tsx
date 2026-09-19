@@ -1,9 +1,9 @@
 import classNames from 'classnames';
 import ProgressBar from '~/components/components/ProgressBar/ProgressBar';
 import type { StatBarProps } from '~/components/components/StatBar/StatBar.interface';
-import classes from '~/components/components/StatBar/StatBar.module.scss';
 import Typography from '~/components/components/Typography/Typography';
 import { DEFAULT_STAT_MAX_VALUE } from '~/constants/stat-bar';
+import classes from './StatBar.module.scss';
 
 const StatBar = ({
   label,
