@@ -58,7 +58,7 @@ export const usePokemons = (
     columnCount,
     estimateRowSize,
     overscan,
-    gap: 16,
+    gap: 24,
     hasNextPage,
     isFetchingNextPage,
     fetchNextPage,
