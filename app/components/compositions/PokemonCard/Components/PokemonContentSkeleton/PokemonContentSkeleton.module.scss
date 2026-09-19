@@ -43,6 +43,7 @@
   border-radius: var(--radius-full);
 
   @include mq(sm) {
+    width: 60px;
     height: 24px;
   }
 }

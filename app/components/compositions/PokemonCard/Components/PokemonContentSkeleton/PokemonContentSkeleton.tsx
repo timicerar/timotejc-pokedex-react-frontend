@@ -10,7 +10,6 @@ const PokemonContentSkeleton = () => {
         <Skeleton className={classes.name} />
         <div className={classes.types}>
           <Skeleton className={classes.badge} />
-          <Skeleton className={classes.badge} />
         </div>
       </div>
     </>
