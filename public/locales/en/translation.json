@@ -129,7 +129,8 @@
       "about": "About",
       "baseStats": "Base Stats",
       "evolutionChain": "Evolution Chain",
-      "moves": "Moves"
+      "moves": "Moves",
+      "sprites": "Sprites"
     }
   },
   "pokemonMoveCategories": {
@@ -147,5 +148,18 @@
     "alola": "Alola",
     "galar": "Galar",
     "paldea": "Paldea"
+  },
+  "pokemonSprites": {
+    "official-artwork-default": "Official Artwork",
+    "official-artwork-shiny": "Official Artwork (Shiny)",
+    "home-default": "Home",
+    "home-shiny": "Home (Shiny)",
+    "front-default": "Front",
+    "front-shiny": "Front (Shiny)",
+    "back-default": "Back",
+    "back-shiny": "Back (Shiny)",
+    "previous": "Previous sprite",
+    "next": "Next sprite",
+    "goToSlide": "Go to sprite {{index}}"
   }
 }

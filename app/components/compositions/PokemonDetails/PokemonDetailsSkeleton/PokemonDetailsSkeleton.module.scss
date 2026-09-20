@@ -30,20 +30,6 @@
   }
 }
 
-.tabsSkeleton {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-4);
-
-  @include mq(lsm) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @include mq(xs) {
-    grid-template-columns: 1fr;
-  }
-}
-
 .tabSkeleton {
   width: 100%;
   height: 44px;

@@ -9,7 +9,10 @@ import PokemonAboutTab from '~/components/compositions/PokemonTabs/PokemonAboutT
 import PokemonBaseStatsTab from '~/components/compositions/PokemonTabs/PokemonBaseStatsTab/PokemonBaseStatsTab';
 import PokemonEvolutionChainTab from '~/components/compositions/PokemonTabs/PokemonEvolutionChainTab/PokemonEvolutionChainTab';
 import PokemonMovesTab from '~/components/compositions/PokemonTabs/PokemonMovesTab/PokemonMovesTab';
+import PokemonSpritesTab from '~/components/compositions/PokemonTabs/PokemonSpritesTab/PokemonSpritesTab';
 import { PokemonDetailsTabs } from '~/constants/pokemon-details-tabs';
+import { useIsTouchDevice } from '~/hooks/useIsTouchDevice';
+import { useMediaQuery } from '~/hooks/useMediaQuery';
 import classes from './PokemonTabs.module.scss';
 
 type PokemonTabsProps = {
@@ -18,11 +21,14 @@ type PokemonTabsProps = {
 
 const PokemonTabs = ({ pokemon }: PokemonTabsProps) => {
   const { t } = useTranslation();
+  const isTablet = useMediaQuery('lsm');
+  const isTouchDevice = useIsTouchDevice();
+  const disableWrap = isTablet && isTouchDevice;
 
   return (
     <Tabs defaultValue={PokemonDetailsTabs.ABOUT} className={classes.tabs}>
       <div className={classes.tabsBar}>
-        <TabsList>
+        <TabsList wrap={!disableWrap}>
           <Tab value={PokemonDetailsTabs.ABOUT} uppercase>
             {t('pokemonDetails.tabs.about')}
           </Tab>
@@ -34,6 +40,9 @@ const PokemonTabs = ({ pokemon }: PokemonTabsProps) => {
           </Tab>
           <Tab value={PokemonDetailsTabs.MOVES} uppercase>
             {t('pokemonDetails.tabs.moves')}
+          </Tab>
+          <Tab value={PokemonDetailsTabs.SPRITES} uppercase>
+            {t('pokemonDetails.tabs.sprites')}
           </Tab>
         </TabsList>
       </div>
@@ -49,6 +58,9 @@ const PokemonTabs = ({ pokemon }: PokemonTabsProps) => {
         </TabContent>
         <TabContent value={PokemonDetailsTabs.MOVES}>
           <PokemonMovesTab pokemon={pokemon} />
+        </TabContent>
+        <TabContent value={PokemonDetailsTabs.SPRITES}>
+          <PokemonSpritesTab pokemon={pokemon} />
         </TabContent>
       </Container>
     </Tabs>

@@ -10,12 +10,7 @@ const PokemonDetailsSkeleton = () => {
         <Skeleton className={classes.heroSkeleton} />
       </Container>
       <div className={classes.tabsBar}>
-        <div className={classes.tabsSkeleton}>
-          <Skeleton className={classes.tabSkeleton} />
-          <Skeleton className={classes.tabSkeleton} />
-          <Skeleton className={classes.tabSkeleton} />
-          <Skeleton className={classes.tabSkeleton} />
-        </div>
+        <Skeleton className={classes.tabSkeleton} />
       </div>
       <Container>
         <Skeleton className={classes.contentSkeleton} />
