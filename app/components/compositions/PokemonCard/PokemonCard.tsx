@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import { useInView } from 'react-intersection-observer';
 import { usePokemon } from '~/api/pokemon/hooks';
 import Card from '~/components/components/Card/Card';
@@ -6,7 +7,12 @@ import PokemonContentSkeleton from '~/components/compositions/PokemonCard/Compon
 import type { PokemonCardProps } from '~/components/compositions/PokemonCard/PokemonCard.interface';
 import classes from './PokemonCard.module.scss';
 
-const PokemonCard = ({ name, onClick }: PokemonCardProps) => {
+const PokemonCard = ({
+  name,
+  onClick,
+  active,
+  hideBadges,
+}: PokemonCardProps) => {
   const { data: cachedPokemon } = usePokemon({ name }, { enabled: false });
 
   const { ref, inView } = useInView({
@@ -17,11 +23,17 @@ const PokemonCard = ({ name, onClick }: PokemonCardProps) => {
   const shouldRenderContent = inView || Boolean(cachedPokemon);
 
   return (
-    <Card ref={ref} fullWidth onClick={onClick} className={classes.card}>
+    <Card
+      ref={ref}
+      fullWidth
+      active={active}
+      onClick={onClick}
+      className={classNames(classes.card, { [classes.noBadges]: hideBadges })}
+    >
       {shouldRenderContent ? (
-        <PokemonContent name={name} />
+        <PokemonContent name={name} hideBadges={hideBadges} />
       ) : (
-        <PokemonContentSkeleton />
+        <PokemonContentSkeleton hideBadges={hideBadges} />
       )}
     </Card>
   );

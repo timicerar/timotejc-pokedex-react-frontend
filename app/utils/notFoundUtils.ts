@@ -34,6 +34,15 @@ export const getNotFoundData = (type: NotFoundType): NotFoundData => {
           to: Routes.POKEDEX(),
         },
       };
+    case NotFoundTypes.POKEMON_MOVE:
+      return {
+        title: i18n?.t('notFound.pokemonMove.title'),
+      };
+    case NotFoundTypes.POKEMON_EVOLUTION_CHAIN:
+      return {
+        title: i18n?.t('notFound.pokemonEvolutionChain.title'),
+        description: i18n?.t('notFound.pokemonEvolutionChain.description'),
+      };
     default:
       return type satisfies never;
   }

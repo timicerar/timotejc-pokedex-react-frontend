@@ -6,6 +6,12 @@ export type PokemonMoveEffectEntry = {
   language: NamedAPIResource;
 };
 
+export type PokemonMoveFlavorTextEntry = {
+  flavor_text: string;
+  language: NamedAPIResource;
+  version_group: NamedAPIResource;
+};
+
 export type PokemonMoveDetail = {
   id: number;
   name: string;
@@ -17,4 +23,5 @@ export type PokemonMoveDetail = {
   type: NamedAPIResource;
   generation: NamedAPIResource;
   effect_entries: PokemonMoveEffectEntry[];
+  flavor_text_entries: PokemonMoveFlavorTextEntry[];
 };

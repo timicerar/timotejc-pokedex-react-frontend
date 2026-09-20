@@ -13,6 +13,6 @@ export type NotFoundData = {
   showLogo?: boolean;
   code?: string;
   title: string;
-  description: string;
+  description?: string;
   button?: NotFoundButtonData;
 };

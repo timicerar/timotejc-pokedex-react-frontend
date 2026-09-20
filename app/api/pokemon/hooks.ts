@@ -13,8 +13,8 @@ import {
   getPokemon,
   getPokemonGeneration,
   getPokemonMove,
-  getPokemons,
   getPokemonSpecies,
+  getPokemons,
   getPokemonType,
 } from '~/api/pokemon';
 import { PokemonQueryKeys } from '~/api/pokemon/queryKeys';

@@ -11,6 +11,7 @@ const Card = forwardRef<HTMLElement, CardProps>(
       padding = CardPaddings.DEFAULT,
       fullWidth,
       noShadow,
+      active,
       onClick,
       className,
       children,
@@ -33,6 +34,7 @@ const Card = forwardRef<HTMLElement, CardProps>(
             [classes.interactive]: interactive,
             [classes.fullWidth]: fullWidth,
             [classes.noShadow]: noShadow,
+            [classes.active]: active,
           },
           className,
         )}

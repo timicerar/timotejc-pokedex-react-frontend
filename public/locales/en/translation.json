@@ -48,6 +48,13 @@
     "pokemonList": {
       "title": "No Pokémon found",
       "description": "Try a different search term, type or generation."
+    },
+    "pokemonMove": {
+      "title": "Pokemon Move was not found"
+    },
+    "pokemonEvolutionChain": {
+      "title": "Evolution chain not found",
+      "description": "We couldn't find any evolution data for this Pokémon."
     }
   },
   "pokemonTypes": {
@@ -110,5 +117,35 @@
     "special-attack": "SP. ATK",
     "special-defense": "SP. DEF",
     "speed": "SPD"
+  },
+  "pokemonDetails": {
+    "height": "Height",
+    "weight": "Weight",
+    "abilities": "Abilities",
+    "pokedexEntry": "Pokédex Entry",
+    "movePower": "PWR {{power}}",
+    "generation": "{{generation}} — {{region}}",
+    "tabs": {
+      "about": "About",
+      "baseStats": "Base Stats",
+      "evolutionChain": "Evolution Chain",
+      "moves": "Moves"
+    }
+  },
+  "pokemonMoveCategories": {
+    "physical": "Physical",
+    "special": "Special",
+    "status": "Status"
+  },
+  "pokemonRegions": {
+    "kanto": "Kanto",
+    "johto": "Johto",
+    "hoenn": "Hoenn",
+    "sinnoh": "Sinnoh",
+    "unova": "Unova",
+    "kalos": "Kalos",
+    "alola": "Alola",
+    "galar": "Galar",
+    "paldea": "Paldea"
   }
 }

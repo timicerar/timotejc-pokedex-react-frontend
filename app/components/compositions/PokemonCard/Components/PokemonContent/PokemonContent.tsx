@@ -16,7 +16,7 @@ import { TypographyTypes } from '~/constants/typography';
 import { useMediaQuery } from '~/hooks/useMediaQuery';
 import classes from './PokemonContent.module.scss';
 
-const PokemonContent = ({ name }: PokemonContentProps) => {
+const PokemonContent = ({ name, hideBadges }: PokemonContentProps) => {
   const { t } = useTranslation();
   const isMobile = useMediaQuery('sm');
   const { data: pokemon, isLoading, isError } = usePokemon({ name });
@@ -57,21 +57,23 @@ const PokemonContent = ({ name }: PokemonContentProps) => {
         <Typography type={TypographyTypes.CARD_TITLE} className={classes.name}>
           {pokemon?.name}
         </Typography>
-        <div className={classes.types}>
-          {pokemon.types?.map(({ type }) => {
-            const pokemonType = type?.name as PokemonType;
+        {!hideBadges && (
+          <div className={classes.types}>
+            {pokemon.types?.map(({ type }) => {
+              const pokemonType = type?.name as PokemonType;
 
-            return (
-              <Badge
-                key={pokemonType}
-                variant={pokemonType}
-                size={isMobile ? BadgeSizes.SM : BadgeSizes.DEFAULT}
-              >
-                {t(`pokemonTypes.${pokemonType}`)}
-              </Badge>
-            );
-          })}
-        </div>
+              return (
+                <Badge
+                  key={pokemonType}
+                  variant={pokemonType}
+                  size={isMobile ? BadgeSizes.SM : BadgeSizes.DEFAULT}
+                >
+                  {t(`pokemonTypes.${pokemonType}`)}
+                </Badge>
+              );
+            })}
+          </div>
+        )}
       </div>
     </>
   );
