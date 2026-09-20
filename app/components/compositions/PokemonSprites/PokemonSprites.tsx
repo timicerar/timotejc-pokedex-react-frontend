@@ -39,7 +39,7 @@ const PokemonSprites = ({ pokemon }: PokemonSpritesProps) => {
     scrollNext,
   } = useCarouselNav();
 
-  if (!sprites.length) {
+  if (!sprites?.length) {
     return null;
   }
 
