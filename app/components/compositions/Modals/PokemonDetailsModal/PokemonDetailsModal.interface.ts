@@ -1,4 +1,4 @@
 export type PokemonDetailsModalData = {
   id?: string;
-  name?: string;
+  name: string;
 };

@@ -1,5 +1,7 @@
 import type { NamedAPIResource } from '~/api/models/Pokemon';
 import PokemonCard from '~/components/compositions/PokemonCard/PokemonCard';
+import { useModalProvider } from '~/components/providers/ModalProvider/hooks/useModalProvider';
+import { ModalTypes } from '~/constants/modal-provider';
 import { useLoadMoreSentinel } from '~/hooks/useLoadMoreSentinel';
 import classes from './PokemonList.module.scss';
 
@@ -16,6 +18,8 @@ const PokemonPlainList = ({
   isFetchingNextPage,
   fetchNextPage,
 }: PokemonPlainListProps) => {
+  const { openModal } = useModalProvider();
+
   const sentinelRef = useLoadMoreSentinel({
     hasNextPage,
     isFetchingNextPage,
@@ -26,7 +30,16 @@ const PokemonPlainList = ({
     <>
       <div className={classes.grid}>
         {items.map((item) => (
-          <PokemonCard key={item.name} name={item.name} />
+          <PokemonCard
+            key={item.name}
+            name={item.name}
+            onClick={() =>
+              openModal({
+                type: ModalTypes.POKEMON_DETAILS,
+                data: { name: item?.name },
+              })
+            }
+          />
         ))}
       </div>
       {hasNextPage && (

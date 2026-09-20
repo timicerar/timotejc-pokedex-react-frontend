@@ -1,13 +1,14 @@
 import Modal from '~/components/components/Modal/Modal';
-import ModalHeader from '~/components/components/Modal/ModalHeader/ModalHeader';
-import Typography from '~/components/components/Typography/Typography';
+import PokemonDetailsModalContent from '~/components/compositions/Modals/PokemonDetailsModal/PokemonDetailsModalContent/PokemonDetailsModalContent';
+import NotFound from '~/components/compositions/NotFound/NotFound';
 import { ModalTypes } from '~/constants/modal-provider';
-import { closeModal, useModalData } from '~/store/modals';
+import { NotFoundTypes } from '~/constants/not-found';
+import { useModalData } from '~/store/modals';
 
 const PokemonDetailsModal = () => {
   return (
     <Modal type={ModalTypes.POKEMON_DETAILS}>
-      <PokemonDetailsModalContent />
+      <PokemonDetailsModalContentGate />
     </Modal>
   );
 };
@@ -17,20 +18,15 @@ const PokemonDetailsModal = () => {
  * re-render when this content does, and so its data is only read once the
  * modal is actually open.
  */
-const PokemonDetailsModalContent = () => {
+const PokemonDetailsModalContentGate = () => {
   const modalData = useModalData(ModalTypes.POKEMON_DETAILS);
-  const pokemon = modalData?.data;
+  const name = modalData?.data?.name;
 
-  if (!pokemon) {
-    return null;
+  if (!name) {
+    return <NotFound type={NotFoundTypes.POKEMON_DETAILS_MODAL} />;
   }
 
-  return (
-    <>
-      <ModalHeader onClose={() => closeModal(ModalTypes.POKEMON_DETAILS)} />
-      <Typography as="p">{pokemon.name ?? pokemon.id}</Typography>
-    </>
-  );
+  return <PokemonDetailsModalContent name={name} />;
 };
 
 export default PokemonDetailsModal;

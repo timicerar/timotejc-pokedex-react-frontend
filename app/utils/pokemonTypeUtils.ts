@@ -1,7 +1,8 @@
 import type { TFunction } from 'i18next';
+import type { PokemonTypeDetail } from '~/api/models/PokemonTypeDetail';
 import type { SelectOptionData } from '~/components/components/Select/Select.interface';
 import type { Color } from '~/constants/colors';
-import { PokemonTypes } from '~/constants/pokemon-types';
+import { type PokemonType, PokemonTypes } from '~/constants/pokemon-types';
 
 export type PokemonTypeOptionData = SelectOptionData & { color: Color };
 
@@ -14,3 +15,54 @@ export const getPokemonTypeOptions = (t: TFunction): PokemonTypeOptionData[] =>
     label: t(`pokemonTypes.${type}`),
     color: getPokemonTypeColor(type),
   }));
+
+export const getPokemonWeaknesses = (
+  types: PokemonType[],
+  typeDetails?: PokemonTypeDetail[],
+): PokemonType[] => {
+  const defendingTypes = typeDetails?.filter((detail) =>
+    types.includes(detail.name as PokemonType),
+  );
+
+  if (!defendingTypes?.length) {
+    return [];
+  }
+
+  const candidates = new Set<string>();
+
+  for (const defending of defendingTypes) {
+    const { double_damage_from, half_damage_from, no_damage_from } =
+      defending.damage_relations;
+
+    for (const { name } of [
+      ...double_damage_from,
+      ...half_damage_from,
+      ...no_damage_from,
+    ]) {
+      candidates.add(name);
+    }
+  }
+
+  return [...candidates].filter((attackingType) => {
+    const multiplier = defendingTypes.reduce((total, defending) => {
+      const { double_damage_from, half_damage_from, no_damage_from } =
+        defending.damage_relations;
+
+      if (no_damage_from.some(({ name }) => name === attackingType)) {
+        return 0;
+      }
+
+      if (double_damage_from.some(({ name }) => name === attackingType)) {
+        return total * 2;
+      }
+
+      if (half_damage_from.some(({ name }) => name === attackingType)) {
+        return total * 0.5;
+      }
+
+      return total;
+    }, 1);
+
+    return multiplier > 1;
+  }) as PokemonType[];
+};

@@ -17,7 +17,10 @@
     "pokedex": "Pokédex",
     "backToPokedex": "Back to Pokédex",
     "goHome": "Go Home",
-    "scrollToTop": "Scroll to top"
+    "scrollToTop": "Scroll to top",
+    "weakAgainst": "Weak against",
+    "baseStats": "Base stats",
+    "total": "Total"
   },
   "select": {
     "placeholder": "Select an option",
@@ -95,6 +98,17 @@
       "description": "This action cannot be undone.",
       "confirm": "Confirm",
       "cancel": "Cancel"
+    },
+    "pokemonDetailsModal": {
+      "viewFullDetails": "View Full Details"
     }
+  },
+  "pokemonStats": {
+    "hp": "HP",
+    "attack": "ATK",
+    "defense": "DEF",
+    "special-attack": "SP. ATK",
+    "special-defense": "SP. DEF",
+    "speed": "SPD"
   }
 }

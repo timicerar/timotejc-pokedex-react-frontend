@@ -39,7 +39,7 @@ const ModalHeader = ({
 
   return (
     <div className={classNames(classes.header, className)} {...props}>
-      <Typography as="h2" type="card-title" className={classes.title}>
+      <Typography as="h2" type="card-title">
         {title}
       </Typography>
       {!hideClose && (

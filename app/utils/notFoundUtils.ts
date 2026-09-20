@@ -19,6 +19,11 @@ export const getNotFoundData = (type: NotFoundType): NotFoundData => {
         title: i18n?.t('notFound.pokemonList.title'),
         description: i18n?.t('notFound.pokemonList.description'),
       };
+    case NotFoundTypes.POKEMON_DETAILS_MODAL:
+      return {
+        title: i18n?.t('notFound.pokemonDetails.title'),
+        description: i18n?.t('notFound.pokemonDetails.description'),
+      };
     case NotFoundTypes.GENERIC:
       return {
         code: i18n?.t('notFound.404'),

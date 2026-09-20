@@ -7,13 +7,14 @@ import type { PokemonContentProps } from '~/components/compositions/PokemonCard/
 import PokemonContentError from '~/components/compositions/PokemonCard/Components/PokemonContentError/PokemonContentError';
 import PokemonContentSkeleton from '~/components/compositions/PokemonCard/Components/PokemonContentSkeleton/PokemonContentSkeleton';
 import { BadgeSizes } from '~/constants/badge';
+import {
+  DESKTOP_POKEMON_IMAGE_SIZE,
+  MOBILE_POKEMON_IMAGE_SIZE,
+} from '~/constants/pokemon';
 import type { PokemonType } from '~/constants/pokemon-types';
 import { TypographyTypes } from '~/constants/typography';
 import { useMediaQuery } from '~/hooks/useMediaQuery';
 import classes from './PokemonContent.module.scss';
-
-const DESKTOP_IMAGE_SIZE = 160;
-const MOBILE_IMAGE_SIZE = 120;
 
 const PokemonContent = ({ name }: PokemonContentProps) => {
   const { t } = useTranslation();
@@ -32,7 +33,9 @@ const PokemonContent = ({ name }: PokemonContentProps) => {
     pokemon.sprites?.other?.['official-artwork']?.front_default ??
     pokemon.sprites?.front_default ??
     '';
-  const imageSize = isMobile ? MOBILE_IMAGE_SIZE : DESKTOP_IMAGE_SIZE;
+  const imageSize = isMobile
+    ? MOBILE_POKEMON_IMAGE_SIZE
+    : DESKTOP_POKEMON_IMAGE_SIZE;
 
   return (
     <>
