@@ -1,5 +1,6 @@
 import type { NamedAPIResource } from '~/api/models/Pokemon';
 import PokemonCard from '~/components/compositions/PokemonCard/PokemonCard';
+import { INITIAL_SKELETON_COUNT } from '~/components/compositions/PokemonList/hooks/useColumnCount';
 import { useModalProvider } from '~/components/providers/ModalProvider/hooks/useModalProvider';
 import { ModalTypes } from '~/constants/modal-provider';
 import { useLoadMoreSentinel } from '~/hooks/useLoadMoreSentinel';
@@ -29,10 +30,11 @@ const PokemonPlainList = ({
   return (
     <>
       <div className={classes.grid}>
-        {items.map((item) => (
+        {items.map((item, index) => (
           <PokemonCard
             key={item.name}
             name={item.name}
+            priority={index < INITIAL_SKELETON_COUNT}
             onClick={() =>
               openModal({
                 type: ModalTypes.POKEMON_DETAILS,

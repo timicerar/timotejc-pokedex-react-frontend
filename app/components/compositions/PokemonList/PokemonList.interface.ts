@@ -5,5 +5,6 @@ export type PokemonListRowProps = {
   virtualRow: VirtualItem;
   measureElement: (element: Element | null) => void;
   rowItems: NamedAPIResource[];
+  startIndex: number;
   showLoadingCard: boolean;
 };

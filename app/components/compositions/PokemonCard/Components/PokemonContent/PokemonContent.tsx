@@ -16,7 +16,11 @@ import { TypographyTypes } from '~/constants/typography';
 import { useMediaQuery } from '~/hooks/useMediaQuery';
 import classes from './PokemonContent.module.scss';
 
-const PokemonContent = ({ name, hideBadges }: PokemonContentProps) => {
+const PokemonContent = ({
+  name,
+  hideBadges,
+  priority,
+}: PokemonContentProps) => {
   const { t } = useTranslation();
   const isMobile = useMediaQuery('sm');
   const { data: pokemon, isLoading, isError } = usePokemon({ name });
@@ -52,6 +56,8 @@ const PokemonContent = ({ name, hideBadges }: PokemonContentProps) => {
         width={imageSize}
         height={imageSize}
         className={classes.image}
+        loading={priority ? 'eager' : 'lazy'}
+        fetchPriority={priority ? 'high' : 'auto'}
       />
       <div className={classes.wrapper}>
         <Typography type={TypographyTypes.CARD_TITLE} className={classes.name}>

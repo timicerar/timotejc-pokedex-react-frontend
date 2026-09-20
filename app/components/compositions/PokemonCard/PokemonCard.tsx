@@ -12,15 +12,16 @@ const PokemonCard = ({
   onClick,
   active,
   hideBadges,
+  priority,
 }: PokemonCardProps) => {
   const { data: cachedPokemon } = usePokemon({ name }, { enabled: false });
 
   const { ref, inView } = useInView({
     triggerOnce: true,
-    skip: Boolean(cachedPokemon),
+    skip: priority || Boolean(cachedPokemon),
   });
 
-  const shouldRenderContent = inView || Boolean(cachedPokemon);
+  const shouldRenderContent = priority || inView || Boolean(cachedPokemon);
 
   return (
     <Card
@@ -31,7 +32,11 @@ const PokemonCard = ({
       className={classNames(classes.card, { [classes.noBadges]: hideBadges })}
     >
       {shouldRenderContent ? (
-        <PokemonContent name={name} hideBadges={hideBadges} />
+        <PokemonContent
+          name={name}
+          hideBadges={hideBadges}
+          priority={priority}
+        />
       ) : (
         <PokemonContentSkeleton hideBadges={hideBadges} />
       )}

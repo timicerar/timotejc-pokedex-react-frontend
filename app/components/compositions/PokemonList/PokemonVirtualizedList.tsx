@@ -56,6 +56,7 @@ const PokemonVirtualizedList = ({
             virtualRow={virtualRow}
             measureElement={rowVirtualizer.measureElement}
             rowItems={rowItems}
+            startIndex={startIndex}
             showLoadingCard={showLoadingCard}
           />
         );

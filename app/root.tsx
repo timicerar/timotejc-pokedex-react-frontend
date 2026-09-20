@@ -4,6 +4,7 @@ import { I18nextProvider } from 'react-i18next';
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router';
 import SplashScreen from '~/components/components/SplashScreen/SplashScreen';
 import ModalProvider from '~/components/providers/ModalProvider/ModalProvider';
+import { env } from '~/constants/env';
 import i18n from '~/lib/i18n';
 import { queryClient } from '~/lib/queryClient';
 import '~/styles/tokens.css';
@@ -11,7 +12,18 @@ import '~/styles/global.scss';
 import ThemeProvider from '~/theme/ThemeProvider';
 import { THEME_INIT_SCRIPT } from '~/theme/utils/theme-init-script';
 
+const getOrigin = (url: string) => {
+  try {
+    return new URL(url).origin;
+  } catch {
+    return undefined;
+  }
+};
+
 export const Layout = ({ children }: PropsWithChildren) => {
+  const apiOrigin = getOrigin(env('VITE_API_URL'));
+  const imagesOrigin = getOrigin(env('VITE_SERVE_IMAGES_URL'));
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -44,6 +56,11 @@ export const Layout = ({ children }: PropsWithChildren) => {
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rubik:wght@400;500;600;700;800&family=VT323&display=swap"
         />
+
+        {apiOrigin && (
+          <link rel="preconnect" href={apiOrigin} crossOrigin="anonymous" />
+        )}
+        {imagesOrigin && <link rel="preconnect" href={imagesOrigin} />}
 
         <link
           rel="icon"

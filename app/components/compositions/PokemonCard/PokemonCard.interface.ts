@@ -3,4 +3,5 @@ export type PokemonCardProps = {
   onClick?: () => void;
   active?: boolean;
   hideBadges?: boolean;
+  priority?: boolean;
 };
