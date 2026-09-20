@@ -12,14 +12,7 @@ import '~/styles/tokens.css';
 import '~/styles/global.scss';
 import ThemeProvider from '~/theme/ThemeProvider';
 import { THEME_INIT_SCRIPT } from '~/theme/utils/theme-init-script';
-
-const getOrigin = (url: string) => {
-  try {
-    return new URL(url).origin;
-  } catch {
-    return undefined;
-  }
-};
+import { getOrigin } from '~/utils/apiResourceUtils';
 
 export const Layout = ({ children }: PropsWithChildren) => {
   const apiOrigin = getOrigin(env('VITE_API_URL'));
