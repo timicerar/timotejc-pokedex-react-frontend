@@ -5,6 +5,7 @@ import { usePokemonSpecies } from '~/api/pokemon/hooks';
 import Skeleton from '~/components/components/Skeleton/Skeleton';
 import Typography from '~/components/components/Typography/Typography';
 import { TypographyTypes } from '~/constants/typography';
+import { getIdFromResourceUrl } from '~/utils/apiResourceUtils';
 import classes from './PokemonEntry.module.scss';
 
 type PokemonEntryProps = {
@@ -14,11 +15,16 @@ type PokemonEntryProps = {
 const PokemonEntry = ({ pokemon }: PokemonEntryProps) => {
   const { t } = useTranslation();
 
+  const speciesId = getIdFromResourceUrl(pokemon.species.url);
+
   const {
     data: species,
     isLoading,
     isError,
-  } = usePokemonSpecies({ name: pokemon.name });
+  } = usePokemonSpecies({
+    name: pokemon.species.name,
+    id: speciesId ? Number(speciesId) : undefined,
+  });
 
   const flavorText = useMemo(() => {
     return species?.flavor_text_entries?.find(

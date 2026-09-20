@@ -45,8 +45,11 @@ const buildEvolutionPaths = (
 const PokemonEvoChain = ({ pokemon }: PokemonEvoChainProps) => {
   const navigate = useNavigate();
 
+  const speciesId = getIdFromResourceUrl(pokemon.species.url);
+
   const { data: species, isLoading: isLoadingSpecies } = usePokemonSpecies({
-    name: pokemon.name,
+    name: pokemon.species.name,
+    id: speciesId ? Number(speciesId) : undefined,
   });
 
   const evolutionChainId = getIdFromResourceUrl(species?.evolution_chain?.url);
@@ -89,10 +92,10 @@ const PokemonEvoChain = ({ pokemon }: PokemonEvoChainProps) => {
               <div className={classes.node}>
                 <PokemonCard
                   name={node.name}
-                  active={node.name === pokemon.name}
+                  active={node.name === pokemon.species.name}
                   hideBadges
                   onClick={
-                    node.name === pokemon.name
+                    node.name === pokemon.species.name
                       ? undefined
                       : () =>
                           navigate(

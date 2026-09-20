@@ -15,6 +15,7 @@ import type { PokemonRegion } from '~/constants/pokemon-regions';
 import type { PokemonType } from '~/constants/pokemon-types';
 import { TypographyTypes } from '~/constants/typography';
 import { useMediaQuery } from '~/hooks/useMediaQuery';
+import { getIdFromResourceUrl } from '~/utils/apiResourceUtils';
 import classes from './PokemonHero.module.scss';
 
 type PokemonHeroProps = {
@@ -25,7 +26,11 @@ const PokemonHero = ({ pokemon }: PokemonHeroProps) => {
   const { t } = useTranslation();
   const isMobile = useMediaQuery('sm');
 
-  const { data: species } = usePokemonSpecies({ name: pokemon.name });
+  const speciesId = getIdFromResourceUrl(pokemon.species.url);
+  const { data: species } = usePokemonSpecies({
+    name: pokemon.species.name,
+    id: speciesId ? Number(speciesId) : undefined,
+  });
   const { data: generations } = usePokemonGenerations({
     enabled: Boolean(species),
   });
