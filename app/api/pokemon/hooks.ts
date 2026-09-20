@@ -3,13 +3,18 @@ import { useMemo } from 'react';
 
 import type { NamedAPIResource } from '~/api/models/Pokemon';
 import type {
+  EvolutionChainParams,
   PokemonDetailsParams,
   PokemonFilters,
+  PokemonMoveParams,
 } from '~/api/models/PokemonFilters';
 import {
+  getEvolutionChain,
   getPokemon,
   getPokemonGeneration,
+  getPokemonMove,
   getPokemons,
+  getPokemonSpecies,
   getPokemonType,
 } from '~/api/pokemon';
 import { PokemonQueryKeys } from '~/api/pokemon/queryKeys';
@@ -161,5 +166,62 @@ export const usePokemonGenerations = ({
     enabled,
     staleTime: Infinity,
     gcTime: Infinity,
+  });
+};
+
+type UsePokemonSpeciesOptions = {
+  enabled?: boolean;
+};
+
+export const usePokemonSpecies = (
+  params: PokemonDetailsParams,
+  { enabled = true }: UsePokemonSpeciesOptions = {},
+) => {
+  return useQuery({
+    queryKey: PokemonQueryKeys.pokemonSpecies(params),
+    queryFn: () => getPokemonSpecies(params),
+    enabled: enabled && Boolean(params?.id || params?.name),
+    refetchOnMount: true,
+    staleTime: Infinity,
+    gcTime: POKEMON_GC_TIME,
+    retry: 2,
+  });
+};
+
+type UseEvolutionChainOptions = {
+  enabled?: boolean;
+};
+
+export const useEvolutionChain = (
+  params: EvolutionChainParams,
+  { enabled = true }: UseEvolutionChainOptions = {},
+) => {
+  return useQuery({
+    queryKey: PokemonQueryKeys.evolutionChain(params),
+    queryFn: () => getEvolutionChain(params),
+    enabled: enabled && Boolean(params?.id),
+    refetchOnMount: true,
+    staleTime: Infinity,
+    gcTime: POKEMON_GC_TIME,
+    retry: 2,
+  });
+};
+
+type UsePokemonMoveOptions = {
+  enabled?: boolean;
+};
+
+export const usePokemonMove = (
+  params: PokemonMoveParams,
+  { enabled = true }: UsePokemonMoveOptions = {},
+) => {
+  return useQuery({
+    queryKey: PokemonQueryKeys.pokemonMove(params),
+    queryFn: () => getPokemonMove(params),
+    enabled: enabled && Boolean(params?.id),
+    refetchOnMount: true,
+    staleTime: Infinity,
+    gcTime: POKEMON_GC_TIME,
+    retry: 2,
   });
 };

@@ -16,3 +16,11 @@ export type PokemonDetailsParams = {
   name: string;
   id?: string;
 };
+
+export type EvolutionChainParams = {
+  id: string;
+};
+
+export type PokemonMoveParams = {
+  id: string;
+};
