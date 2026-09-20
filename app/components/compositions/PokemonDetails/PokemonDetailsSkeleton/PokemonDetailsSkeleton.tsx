@@ -7,23 +7,17 @@ const PokemonDetailsSkeleton = () => {
   return (
     <div className={classes.root}>
       <Container className={classes.hero}>
-        <Skeleton className={classes.imageSkeleton} />
-        <div className={classes.wrapper}>
-          <Skeleton className={classes.idSkeleton} />
-          <Skeleton className={classes.nameSkeleton} />
-          <div className={classes.badges}>
-            <Skeleton className={classes.badgeSkeleton} />
-            <Skeleton className={classes.badgeSkeleton} />
-          </div>
-        </div>
+        <Skeleton className={classes.heroSkeleton} />
       </Container>
-      <Container>
+      <div className={classes.tabsBar}>
         <div className={classes.tabsSkeleton}>
           <Skeleton className={classes.tabSkeleton} />
           <Skeleton className={classes.tabSkeleton} />
           <Skeleton className={classes.tabSkeleton} />
           <Skeleton className={classes.tabSkeleton} />
         </div>
+      </div>
+      <Container>
         <Skeleton className={classes.contentSkeleton} />
       </Container>
     </div>

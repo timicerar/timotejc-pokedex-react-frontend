@@ -59,7 +59,7 @@ const PokemonMoveContent = ({ id }: PokemonMoveContentProps) => {
         >
           {t(`pokemonMoveCategories.${category}`)}
         </Typography>
-        {move?.power && (
+        {move?.power !== null && (
           <Typography
             type={TypographyTypes.CAPTION}
             color="muted-foreground"
