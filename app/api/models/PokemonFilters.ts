@@ -14,7 +14,7 @@ export type PokemonListParams = {
 
 export type PokemonDetailsParams = {
   name: string;
-  id?: string;
+  id?: number;
 };
 
 export type EvolutionChainParams = {
