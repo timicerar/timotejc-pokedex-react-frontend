@@ -26,7 +26,7 @@ const PokemonWeakAgainst = ({
     return getPokemonWeaknesses(types, typeDetails);
   }, [pokemon.types, typeDetails]);
 
-  if (!weaknesses.length) {
+  if (!weaknesses?.length) {
     return null;
   }
 

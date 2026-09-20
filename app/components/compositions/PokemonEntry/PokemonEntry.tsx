@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import type { Pokemon } from '~/api/models/Pokemon';
 import { usePokemonSpecies } from '~/api/pokemon/hooks';
@@ -19,13 +20,15 @@ const PokemonEntry = ({ pokemon }: PokemonEntryProps) => {
     isError,
   } = usePokemonSpecies({ name: pokemon.name });
 
+  const flavorText = useMemo(() => {
+    return species?.flavor_text_entries?.find(
+      (entry) => entry.language.name === 'en',
+    )?.flavor_text;
+  }, [species?.flavor_text_entries]);
+
   if (isLoading) {
     return <Skeleton className={classes.skeleton} />;
   }
-
-  const flavorText = species?.flavor_text_entries?.find(
-    (entry) => entry.language.name === 'en',
-  )?.flavor_text;
 
   if (isError || !species || !flavorText) {
     return null;
