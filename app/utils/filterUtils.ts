@@ -47,6 +47,20 @@ export const getPokemonListConfig = (
   };
 };
 
+export const getPokemonListConfigFromUrl = (url: URL): PokemonListConfig => {
+  const filters: PokemonFilters = {
+    search: url.searchParams.get('search') ?? '',
+    type: parseList<PokemonType>(url.searchParams.get('type')),
+    generation: parseList<PokemonGeneration>(
+      url.searchParams.get('generation'),
+    ),
+  };
+  const limitParam = url.searchParams.get('limit');
+  const limit = limitParam ? Number(limitParam) : null;
+
+  return getPokemonListConfig(filters, limit);
+};
+
 export const filterPokemonsBySearch = (
   pokemons: NamedAPIResource[],
   search: string,

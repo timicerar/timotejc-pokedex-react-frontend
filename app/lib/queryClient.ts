@@ -7,3 +7,15 @@ export const queryClient = new QueryClient({
     },
   },
 });
+
+export const prefetchQuery = (
+  options: Parameters<typeof queryClient.query>[0],
+) => {
+  queryClient.query(options).catch(() => {});
+};
+
+export const prefetchInfiniteQuery = (
+  options: Parameters<typeof queryClient.infiniteQuery>[0],
+) => {
+  queryClient.infiniteQuery(options).catch(() => {});
+};
