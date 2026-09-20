@@ -8,9 +8,9 @@
   --card-foreground: #0f1729;
   --popover: #ffffff;
   --popover-foreground: #0f1729;
-  --primary: #f12213;
+  --primary: #e21c0d;
   --primary-foreground: #ffffff;
-  --secondary: #1876f2;
+  --secondary: #0d6eed;
   --secondary-foreground: #ffffff;
   --muted: #f0ece5;
   --muted-foreground: #566376;
@@ -20,21 +20,21 @@
   --destructive-foreground: #ffffff;
   --border: #dcd7cb;
   --input: #dcd7cb;
-  --ring: #f12213;
+  --ring: #e21c0d;
 
   /* Shadow — the "pixel shadow" scale (light, default) */
   --shadow-sm: 3px 3px 0 #dcd7cb;
   --shadow-md: 5px 5px 0 #dcd7cb;
-  --shadow-lg: 8px 8px 0 #f12213;
-  --shadow-xl: 10px 10px 0 #f12213;
+  --shadow-lg: 8px 8px 0 #e21c0d;
+  --shadow-xl: 10px 10px 0 #e21c0d;
 
   /* Color — Pokémon type tokens (single-value, same in both themes) */
   --type-normal: #a8a878;
   --type-normal-foreground: #1a1a1a;
   --type-fire: #f08030;
-  --type-fire-foreground: #ffffff;
+  --type-fire-foreground: #1a1a1a;
   --type-water: #6890f0;
-  --type-water-foreground: #ffffff;
+  --type-water-foreground: #1a1a1a;
   --type-electric: #f8d030;
   --type-electric-foreground: #1a1a1a;
   --type-grass: #78c850;
@@ -50,7 +50,7 @@
   --type-flying: #a890f0;
   --type-flying-foreground: #1a1a1a;
   --type-psychic: #f85888;
-  --type-psychic-foreground: #ffffff;
+  --type-psychic-foreground: #1a1a1a;
   --type-bug: #a8b820;
   --type-bug-foreground: #1a1a1a;
   --type-rock: #b8a038;
@@ -66,9 +66,9 @@
   --type-fairy: #ee99ac;
   --type-fairy-foreground: #1a1a1a;
   --type-stellar: #40b5a5;
-  --type-stellar-foreground: #ffffff;
+  --type-stellar-foreground: #1a1a1a;
   --type-unknown: #909090;
-  --type-unknown-foreground: #ffffff;
+  --type-unknown-foreground: #1a1a1a;
 
   /* Color — stat tokens (single-value, same in both themes) */
   --stat-hp: #78c850;
@@ -203,7 +203,7 @@
     --card-foreground: #f6f4ee;
     --popover: #111827;
     --popover-foreground: #f6f4ee;
-    --primary: #f34135;
+    --primary: #e71b0e;
     --primary-foreground: #ffffff;
     --secondary: #3e88ea;
     --secondary-foreground: #090e1a;
@@ -211,16 +211,16 @@
     --muted-foreground: #94a3b8;
     --accent: #ffd11a;
     --accent-foreground: #090e1a;
-    --destructive: #dd3c3c;
+    --destructive: #db3333;
     --destructive-foreground: #ffffff;
     --border: #262e40;
     --input: #262e40;
-    --ring: #f34135;
+    --ring: #e71b0e;
 
     --shadow-sm: 3px 3px 0 #262e40;
     --shadow-md: 5px 5px 0 #262e40;
-    --shadow-lg: 8px 8px 0 #f34135;
-    --shadow-xl: 10px 10px 0 #f34135;
+    --shadow-lg: 8px 8px 0 #e71b0e;
+    --shadow-xl: 10px 10px 0 #e71b0e;
   }
 }
 
@@ -233,7 +233,7 @@ html[data-theme='dark'] {
   --card-foreground: #f6f4ee;
   --popover: #111827;
   --popover-foreground: #f6f4ee;
-  --primary: #f34135;
+  --primary: #e71b0e;
   --primary-foreground: #ffffff;
   --secondary: #3e88ea;
   --secondary-foreground: #090e1a;
@@ -241,14 +241,14 @@ html[data-theme='dark'] {
   --muted-foreground: #94a3b8;
   --accent: #ffd11a;
   --accent-foreground: #090e1a;
-  --destructive: #dd3c3c;
+  --destructive: #db3333;
   --destructive-foreground: #ffffff;
   --border: #262e40;
   --input: #262e40;
-  --ring: #f34135;
+  --ring: #e71b0e;
 
   --shadow-sm: 3px 3px 0 #262e40;
   --shadow-md: 5px 5px 0 #262e40;
-  --shadow-lg: 8px 8px 0 #f34135;
-  --shadow-xl: 10px 10px 0 #f34135;
+  --shadow-lg: 8px 8px 0 #e71b0e;
+  --shadow-xl: 10px 10px 0 #e71b0e;
 }

@@ -30,6 +30,9 @@
     "searchPlaceholder": "Search Pokémon by name",
     "clearFilters": "Clear filters"
   },
+  "pokemonCard": {
+    "viewDetails": "View details for {{name}}"
+  },
   "theme": {
     "toggle": "Toggle theme",
     "light": "Light Mode",
