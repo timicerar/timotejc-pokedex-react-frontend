@@ -5,6 +5,7 @@ import { Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router';
 import SplashScreen from '~/components/components/SplashScreen/SplashScreen';
 import ModalProvider from '~/components/providers/ModalProvider/ModalProvider';
 import { env } from '~/constants/env';
+import { FONTS_HREF, FONTS_INIT_SCRIPT } from '~/lib/fonts-init-script';
 import i18n from '~/lib/i18n';
 import { queryClient } from '~/lib/queryClient';
 import '~/styles/tokens.css';
@@ -52,10 +53,15 @@ export const Layout = ({ children }: PropsWithChildren) => {
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rubik:wght@400;500;600;700;800&family=VT323&display=swap"
+        <link rel="preload" as="style" href={FONTS_HREF} />
+        <script
+          id="fonts-init"
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{ __html: FONTS_INIT_SCRIPT }}
         />
+        <noscript>
+          <link rel="stylesheet" href={FONTS_HREF} />
+        </noscript>
 
         {apiOrigin && (
           <link rel="preconnect" href={apiOrigin} crossOrigin="anonymous" />
