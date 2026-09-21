@@ -136,14 +136,15 @@ $breakpoints: (
   }
 }
 
-@mixin button-rounded {
+@mixin button-rounded($size: 'default') {
   @include button-secondary-surface;
-  width: 36px;
-  height: 36px;
   padding: 0;
 
-  &.sm {
+  @if $size == 'sm' {
     width: 32px;
     height: 32px;
+  } @else {
+    width: 36px;
+    height: 36px;
   }
 }

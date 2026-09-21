@@ -30,4 +30,8 @@
 
 .rounded {
   @include button-rounded;
+
+  &.sm {
+    @include button-rounded('sm');
+  }
 }
