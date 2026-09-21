@@ -7,7 +7,7 @@ const PokemonDetails = ({ pokemon }: PokemonDetailsProps) => {
   return (
     <div className={classes.root}>
       <PokemonHero pokemon={pokemon} />
-      <PokemonTabs pokemon={pokemon} />
+      <PokemonTabs key={pokemon?.id} pokemon={pokemon} />
     </div>
   );
 };
