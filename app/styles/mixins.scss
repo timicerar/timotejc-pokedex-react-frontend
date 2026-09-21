@@ -49,3 +49,101 @@ $breakpoints: (
     text-transform: uppercase;
   }
 }
+
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  box-sizing: border-box;
+  border: none;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  padding: var(--space-2) var(--space-4);
+  @include typography('button', 'body', true);
+  transition:
+    transform 150ms ease,
+    box-shadow 150ms ease,
+    border-color 150ms ease;
+
+  &:focus-visible {
+    outline: 2px solid var(--ring);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    box-shadow: none;
+    cursor: not-allowed;
+  }
+}
+
+@mixin button-sm {
+  padding: var(--space-1) var(--space-3);
+}
+
+@mixin button-full-width {
+  width: 100%;
+}
+
+@mixin button-primary {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  box-shadow: var(--shadow-sm);
+
+  &:not(:disabled) {
+    @include hover {
+      transform: translate(-1px, -1px);
+      box-shadow: var(--shadow-md);
+    }
+  }
+}
+
+@mixin button-secondary-surface {
+  background: var(--muted);
+  color: var(--foreground);
+  border: 2px solid var(--border);
+  box-shadow: var(--shadow-sm);
+
+  &:not(:disabled) {
+    @include hover {
+      transform: translate(-1px, -1px);
+      box-shadow: var(--shadow-md);
+    }
+  }
+}
+
+@mixin button-ghost {
+  background: transparent;
+  color: var(--foreground);
+
+  &:not(:disabled) {
+    @include hover {
+      background: var(--muted);
+    }
+  }
+}
+
+@mixin button-destructive {
+  background: var(--destructive);
+  color: var(--destructive-foreground);
+  box-shadow: var(--shadow-sm);
+
+  &:not(:disabled) {
+    @include hover {
+      transform: translate(-1px, -1px);
+      box-shadow: var(--shadow-md);
+    }
+  }
+}
+
+@mixin button-rounded {
+  @include button-secondary-surface;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+
+  &.sm {
+    width: 32px;
+    height: 32px;
+  }
+}

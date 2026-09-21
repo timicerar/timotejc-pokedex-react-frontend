@@ -1,103 +1,33 @@
 @use 'app/styles/mixins' as *;
 
 .button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-2);
-  box-sizing: border-box;
-  border: none;
-  border-radius: var(--radius-full);
-  cursor: pointer;
-  padding: var(--space-2) var(--space-4);
-  @include typography('button', 'body', true);
-  transition:
-    transform 150ms ease,
-    box-shadow 150ms ease,
-    border-color 150ms ease;
-
-  &:focus-visible {
-    outline: 2px solid var(--ring);
-  }
-
-  &:disabled {
-    opacity: 0.5;
-    box-shadow: none;
-    cursor: not-allowed;
-  }
+  @include button-base;
 }
 
 .sm {
-  padding: var(--space-1) var(--space-3);
+  @include button-sm;
 }
 
 .fullWidth {
-  width: 100%;
+  @include button-full-width;
 }
 
 .primary {
-  background: var(--primary);
-  color: var(--primary-foreground);
-  box-shadow: var(--shadow-sm);
-
-  &:not(:disabled) {
-    @include hover {
-      transform: translate(-1px, -1px);
-      box-shadow: var(--shadow-md);
-    }
-  }
-}
-
-%secondary-surface {
-  background: var(--muted);
-  color: var(--foreground);
-  border: 2px solid var(--border);
-  box-shadow: var(--shadow-sm);
-
-  &:not(:disabled) {
-    @include hover {
-      transform: translate(-1px, -1px);
-      box-shadow: var(--shadow-md);
-    }
-  }
+  @include button-primary;
 }
 
 .secondary {
-  @extend %secondary-surface;
+  @include button-secondary-surface;
 }
 
 .ghost {
-  background: transparent;
-  color: var(--foreground);
-
-  &:not(:disabled) {
-    @include hover {
-      background: var(--muted);
-    }
-  }
+  @include button-ghost;
 }
 
 .destructive {
-  background: var(--destructive);
-  color: var(--destructive-foreground);
-  box-shadow: var(--shadow-sm);
-
-  &:not(:disabled) {
-    @include hover {
-      transform: translate(-1px, -1px);
-      box-shadow: var(--shadow-md);
-    }
-  }
+  @include button-destructive;
 }
 
 .rounded {
-  @extend %secondary-surface;
-  width: 36px;
-  height: 36px;
-  padding: 0;
-
-  &.sm {
-    width: 32px;
-    height: 32px;
-  }
+  @include button-rounded;
 }
