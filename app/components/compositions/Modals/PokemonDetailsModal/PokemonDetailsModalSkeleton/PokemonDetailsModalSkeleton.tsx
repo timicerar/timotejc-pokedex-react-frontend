@@ -9,10 +9,10 @@ const PokemonDetailsModalSkeleton = () => {
         <Skeleton className={classes.imageSkeleton} />
         <Skeleton className={classes.idSkeleton} />
         <Skeleton className={classes.nameSkeleton} />
-      </div>
-      <div className={classes.badges}>
-        <Skeleton className={classes.badgeSkeleton} />
-        <Skeleton className={classes.badgeSkeleton} />
+        <div className={classes.badges}>
+          <Skeleton className={classes.badgeSkeleton} />
+          <Skeleton className={classes.badgeSkeleton} />
+        </div>
       </div>
       <Skeleton className={classes.statsSkeleton} />
       <Skeleton className={classes.weakSkeleton} />
