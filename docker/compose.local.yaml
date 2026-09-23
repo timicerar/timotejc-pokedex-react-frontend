@@ -2,7 +2,7 @@ name: timotejc-pokedex-react-frontend
 
 services:
   web:
-    container_name: timotejc-pokedex-react-frontend
+    container_name: pokedex-react-frontend-production
     build:
       context: ..
       dockerfile: docker/Dockerfile
