@@ -54,16 +54,12 @@
 
 .badgeSkeleton {
   width: 80px;
-  min-width: 80px;
   height: 28px;
-  min-height: 28px;
   border-radius: var(--radius-full);
 
   @include mq(sm) {
     width: 60px;
-    min-width: 60px;
     height: 24px;
-    min-height: 24px;
   }
 }
 
