@@ -32,11 +32,15 @@
 
 .imageSkeleton {
   width: 160px;
+  min-width: 160px;
   height: 160px;
+  min-height: 160px;
 
   @include mq(sm) {
     width: 120px;
+    min-width: 120px;
     height: 120px;
+    min-height: 120px;
   }
 }
 
