@@ -15,7 +15,9 @@ import type { PokemonRegion } from '~/constants/pokemon-regions';
 import type { PokemonType } from '~/constants/pokemon-types';
 import { TypographyTypes } from '~/constants/typography';
 import { useMediaQuery } from '~/hooks/useMediaQuery';
+import { usePokemonImageMode } from '~/hooks/usePokemonImageMode';
 import { getIdFromResourceUrl } from '~/utils/apiResourceUtils';
+import { getPrimaryPokemonImage } from '~/utils/pokemonSpriteUtils';
 import classes from './PokemonHero.module.scss';
 
 type PokemonHeroProps = {
@@ -25,6 +27,7 @@ type PokemonHeroProps = {
 const PokemonHero = ({ pokemon }: PokemonHeroProps) => {
   const { t } = useTranslation();
   const isMobile = useMediaQuery('sm');
+  const { lowerResImg } = usePokemonImageMode();
 
   const speciesId = getIdFromResourceUrl(pokemon.species.url);
   const { data: species } = usePokemonSpecies({
@@ -39,10 +42,7 @@ const PokemonHero = ({ pokemon }: PokemonHeroProps) => {
     (item) => item.name === species?.generation?.name,
   );
 
-  const image =
-    pokemon.sprites?.other?.['official-artwork']?.front_default ??
-    pokemon.sprites?.front_default ??
-    '';
+  const image = getPrimaryPokemonImage(pokemon, lowerResImg);
   const imageSize = isMobile
     ? MOBILE_POKEMON_HERO_IMAGE_SIZE
     : DESKTOP_POKEMON_HERO_IMAGE_SIZE;
